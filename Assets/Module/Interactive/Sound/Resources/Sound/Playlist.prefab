@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1251341075863595504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3409612297360233442}
+  - component: {fileID: 3572725870614535019}
+  m_Layer: 0
+  m_Name: Playlist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3409612297360233442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251341075863595504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3572725870614535019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251341075863595504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8df897e1c3b386428402d36b1c9d7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playlist:
+    sfx_click: {fileID: 8300000, guid: 5374f54f38bfc449d8f8ab09eff8857a, type: 3}
+    sfx_select: {fileID: 8300000, guid: 876348248bb104d90a3b2c318ea69044, type: 3}
+    sfx_submit: {fileID: 8300000, guid: 2d7e9b80788f21047968c2cfcb384730, type: 3}
+    sfx_message: {fileID: 0}
+    sfx_notif: {fileID: 0}
+    sfx_ping: {fileID: 0}
+    sfx_back: {fileID: 8300000, guid: cdc05c54b2822479d958b2b408a36bed, type: 3}
+    sfx_openbag: {fileID: 0}
+    sfx_movepage: {fileID: 8300000, guid: e693ad13957d2744ca0b832ba3bc2f8b, type: 3}
+    sfx_page_many:
+    - {fileID: 8300000, guid: 34016a6aa05294887a27831fc3df7044, type: 3}
+    - {fileID: 8300000, guid: f95e94c0897c7496cb539415e98a378c, type: 3}

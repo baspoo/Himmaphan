@@ -1,0 +1,16 @@
+Enable	Id	Name	Description	Type	Affect	UseAt	Formula	Price	Currency	IsAvailableInShop	IsCanUse
+TRUE	item_seed	Seeds	เมล็ดพันธ์ต้นไม้ ใช้สำหรับปลูกต้นไม้บนเกาะสวรรค์ มาสรรค์สร้างเกาะของเราให้เขียวขจีกันเถอะ	Seed	Seed	Island	{}	10	Coin	TRUE	TRUE
+TRUE	item_gacha	Gacha	เมล็ดพันธ์ต้นไม้ ใช้สำหรับปลูกต้นไม้บนเกาะสวรรค์ มาสรรค์สร้างเกาะของเราให้เขียวขจีกันเถอะ	Gacha	Gacha	All	{}	300	CarbonCridit	TRUE	TRUE
+TRUE	item_buff_001	Watering 	บัวรดน้ำ ใช้สำหรับรดน้ำต้นไม้บนเกาะสวรรค์ได้ทันที โดยไม่ต้องรอเวลา	Buff	Water	Island	{"carboncredit":10}	100	Coin	TRUE	TRUE
+TRUE	item_buff_002	Feed	ปุ๋ย ใช้สำหรับบำรุงต้นไม้ทำให้ต้นไม้ โตได้รวดเร็วขึ้น ต้นไม้ที่โตเต็มวัยจะได้รับไอเท็มเพื่อส่งภารกิจ	Buff	Feed	Island	{"addReduce":0.1}	100	Coin	TRUE	TRUE
+TRUE	item_buff_003	Foggy	บำรุงต้นไม้ให้สมบูณ์ขึ้น ทำให้ต้นไม้มอบคาร์บอนเครดิตสูงขึ้น เมื่อกลับมารดน้ำ	Buff	Foggy	Island	{"addBonus":0.1}	100	Coin	TRUE	TRUE
+TRUE	item_buff_004	Teleport	วาร์ป	Buff	Teleport	World	{}	100	Coin	TRUE	TRUE
+TRUE	item_buff_005	Hint MiniEvent		Buff	Hint	World	{}	100	Coin	TRUE	TRUE
+TRUE	item_tree_001	Tree 1		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_002	Tree 2		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_003	Tree 3		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_004	Tree 4		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_005	Tree 5		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_006	Tree 6		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_007	Tree 7		Tree	None	None	{}	0	Coin	FALSE	FALSE
+TRUE	item_tree_008	Tree 8		Tree	None	None	{}	0	Coin	FALSE	FALSE

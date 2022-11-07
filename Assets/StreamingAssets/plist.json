@@ -1,0 +1,32 @@
+{
+    "version": "1.0.0",
+    "apiData": {
+        "api_getEventList": "https://smartobm-vsr-uat.thaitrade.com/api/public/events",
+        "api_getEventDetail": "https://smartobm-vsr-uat.thaitrade.com/api/public/events/@",
+        "api_getProductList": "https://smartobm-vsr-uat.thaitrade.com/api/public/sellers/@/products"
+    },
+    "config": {
+        "playerMoveSpeed": 2,
+        "cameraFieldOfView": 90,
+        "pitchSensitivity": -0.06,
+        "yawSensitivity": -0.06,
+        "guiScaleFactor": 1.4,
+        "guiWidth": 1920,
+        "guiHeight": 1080,
+        "protectImageFail": false
+    },
+    "languages": {
+        "header": "Smart-OBM",
+        "welcome_message": "WELCOME TO",
+        "console_header_message": "@",
+        "console_location_message": "Location : @",
+        "help_clickleft": "Left Click and Drag to long around the Space.",
+        "help_clickright": "Click on the floor or throughout space to move around.",
+        "help_map": "In the right corner of the screen Click to view the Floor Plan and switch between floor.",
+        "notif_header": "Notification!",
+        "error_message_notfoundevent": "No such activity was found. The exhibition time may have expired.",
+        "error_message_notfoundproduct": "Can't find such product Please check your Internet status or contact the staff to fix it.",
+        "error_message_cantconnectapi": "Unable to contact the server. Please check your Internet status or contact the staff to fix it.",
+        "error_message_cantfullscreen": "On edit mode or windows standalone platform can't make fullscreen."
+    }
+}

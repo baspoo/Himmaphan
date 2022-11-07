@@ -1,0 +1,241 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9101091892498668982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3272291845114181256}
+  - component: {fileID: 1673570736635012939}
+  m_Layer: 0
+  m_Name: uimaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3272291845114181256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101091892498668982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.705743, y: 13.944483, z: -9.806682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673570736635012939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101091892498668982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b9792e7bdc0ed4d8a0588474e66263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Notes:
+  - type: 0
+    Message: "TODO : around icon ground\n- island move/remove/create icon \n"
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 'TODO : furniture obj'
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 'TODO : avatar costume
+
+      - bag
+
+      - hat'
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 'TODO : sound
+
+      - sfxwater
+
+      - sfxdig'
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 'TODO : Island Beautyfull
+
+      - island grass
+
+      - particle environment'
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 'TODO : vfx
+
+      - water
+
+      - cut tree
+
+      - plant tree'
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  - type: 0
+    Message: 
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    Vector: {x: 0, y: 0, z: 0}
+    GObj: {fileID: 0}
+    Texture: {fileID: 0}
+  ColorDatas:
+  - colorName: grey_slot
+    color: {r: 0.92156863, g: 0.84313726, b: 0.7411765, a: 1}
+  - colorName: grey_slot_disable
+    color: {r: 0.69803923, g: 0.62352943, b: 0.52156866, a: 0.43529412}
+  - colorName: cream_slot
+    color: {r: 0.9372549, g: 0.827451, b: 0.6784314, a: 1}
+  - colorName: login_font
+    color: {r: 0.64705884, g: 0.45882356, b: 0.3529412, a: 1}
+  - colorName: dashline
+    color: {r: 0.83921576, g: 0.69803923, b: 0.54901963, a: 1}
+  - colorName: green_stroke
+    color: {r: 0.11764707, g: 0.5372549, b: 0.5137255, a: 1}
+  - colorName: blue_stroke
+    color: {r: 0.13333334, g: 0.32156864, b: 0.5803922, a: 1}
+  - colorName: red_stroke
+    color: {r: 0.67058825, g: 0.19607845, b: 0.19215688, a: 1}
+  - colorName: playername_color
+    color: {r: 0.29411766, g: 0.14901961, b: 0.16470589, a: 1}
+  - colorName: icon_noneactive
+    color: {r: 0.7843138, g: 0.5019608, b: 0.08627451, a: 1}
+  - colorName: txt
+    color: {r: 0.2830189, g: 0.24611022, b: 0.22027414, a: 1}
+  - colorName: txt_stroke1
+    color: {r: 0.69803923, g: 0.39215687, b: 0.23921569, a: 1}
+  - colorName: cream_slot2
+    color: {r: 0.8901961, g: 0.70980394, b: 0.49411765, a: 1}
+  - colorName: cream_slot3
+    color: {r: 0.9254902, g: 0.75686276, b: 0.5529412, a: 1}
+  - colorName: cream_slot4
+    color: {r: 0.9960785, g: 0.9686275, b: 0.9058824, a: 1}
+  - colorName: ui_new_circle
+    color: {r: 1, g: 0.30588236, b: 0.30588236, a: 1}
+  - colorName: txt_achievment
+    color: {r: 0.43137255, g: 0.29803923, b: 0.16470589, a: 1}
+  - colorName: txt_nomoney
+    color: {r: 0.86666673, g: 0, b: 0.09411766, a: 1}
+  UITemplateDatas:
+  - uiName: btn_close
+    template: {fileID: 7597358728901898453, guid: 2f8cee840a2e451449d866b64fe5cace, type: 3}
+    view: 0
+  - uiName: btn_green
+    template: {fileID: 7279000574392948391, guid: 28313dea0d4a51a43a8c0ce053aa689a, type: 3}
+    view: 0
+  - uiName: btn_blue
+    template: {fileID: 8181827820742052616, guid: 42cc6e4429dbbb14eb36e5be6f576ba6, type: 3}
+    view: 0
+  - uiName: btn_red
+    template: {fileID: 3180975813155274263, guid: 4acfa74463cbaf043b1399d7c075554b, type: 3}
+    view: 0
+  - uiName: btn_decrease
+    template: {fileID: 7896000337715273028, guid: b5c6a70b915fd504bade0c2481c1e462, type: 3}
+    view: 0
+  - uiName: btn_increase
+    template: {fileID: 4995487179586352719, guid: 33f43d5af6bf69e4197c4c45c00dd38c, type: 3}
+    view: 0
+  - uiName: ui_fill_bar_blue
+    template: {fileID: 6518438168085828875, guid: 3efd51105c0b4454482e9b33eb175d3f, type: 3}
+    view: 0
+  - uiName: btn_petagon_blue
+    template: {fileID: 9110448016368634823, guid: a9ac33946a5003e4dabfd24f9e57448f, type: 3}
+    view: 0
+  - uiName: btn_petagon_green
+    template: {fileID: 2009139017360937963, guid: 4024763c32be2f04488e44366aa4b5c7, type: 3}
+    view: 0
+  - uiName: btn_petagon_red
+    template: {fileID: 6290689007135225501, guid: 696905ae4adcccb4ab9d91bda67e8f9a, type: 3}
+    view: 0
+  - uiName: btn_circle_yellow
+    template: {fileID: 4129002011026973153, guid: 7a9c5e081987ced4c85f0823415073ba, type: 3}
+    view: 0
+  - uiName: img_dashline
+    template: {fileID: 5583733738466071545, guid: 5bbf63d48dd135c4cb65c80a8fa96bc6, type: 3}
+    view: 0
+  - uiName: btn_petagon_orange
+    template: {fileID: 7216604986166380454, guid: cd8ebd8c1534cd949909fb99e74c4737, type: 3}
+    view: 0
+  - uiName: btn_left
+    template: {fileID: 8193320590715133899, guid: d7d9d5077fb9c3d44b91d365752ca446, type: 3}
+    view: 0
+  - uiName: btn_rignt
+    template: {fileID: 1021610562366150866, guid: 58a44b53d2e09f9428cf9686910447a8, type: 3}
+    view: 0
+  - uiName: btn_confirm
+    template: {fileID: 3623299720479556584, guid: 3564b4e19a9b4124faa1b58a805e14f5, type: 3}
+    view: 0
+  - uiName: btn_sell
+    template: {fileID: 1886752477735738687, guid: d7fdea2edabf623489d1058983ac91e2, type: 3}
+    view: 0
+  - uiName: frame_achievement_list
+    template: {fileID: 7890118660166058861, guid: 29520d038cdd15d4888207d8f29bb0ce, type: 3}
+    view: 0
+  - uiName: btn_move
+    template: {fileID: 4726973990720515342, guid: fb01374c81ac753408e3a2a1169daff7, type: 3}
+    view: 0
+  - uiName: img_slotBg1
+    template: {fileID: 7333846450897226622, guid: 25923f0eab69afa44ad40a88b8e18d5e, type: 3}
+    view: 0
+  - uiName: scBg
+    template: {fileID: 637380653457089649, guid: d57c9546feb394d4abbdd018f0001d98, type: 3}
+    view: 0
+  - uiName: btn_brown
+    template: {fileID: 3758756885503712342, guid: 066046dc14da5e74fa5c55c8ee59146e, type: 3}
+    view: 0
+  - uiName: header
+    template: {fileID: 1104435504585000328, guid: 024762e486535ba48824655fbd9e6fe6, type: 3}
+    view: 0
+  - uiName: headerClip
+    template: {fileID: 3512951354292313100, guid: 69a02840c596ad844b28134a36ed462f, type: 3}
+    view: 0
+  - uiName: btn_mint
+    template: {fileID: 9165275591730333574, guid: 6548da2fee873a947b7900f3a398e20d, type: 3}
+    view: 0
+  - uiName: btn_pentagon_yellow
+    template: {fileID: 1702990002440099190, guid: 5df9a68d84b54c9428536bca166d880a, type: 3}
+    view: 0
+  - uiName: btn_pentagon_yellow2
+    template: {fileID: 8920260408039219637, guid: d36e0892cca665c4993d262566989770, type: 3}
+    view: 0
+  - uiName: btn_close_black
+    template: {fileID: 9046024164573892016, guid: df8a0eb520db19c439fafca8ca9688b5, type: 3}
+    view: 0
+  - uiName: uisubtap
+    template: {fileID: 1898258650251083933, guid: 238740bcc05972247ae67b0561f4855c, type: 3}
+    view: 0
+  LayoutDatas:
+  - name: 
+    root: {fileID: 0}
+    nodes: []

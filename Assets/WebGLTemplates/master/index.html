@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Himmaphan</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="unity-webview.js"></script>
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=0 height=0></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) 
+      {
+        function updateBannerVisibility() 
+        {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+
+      var mobile = false;
+      var done = false;
+      var m_unityInstance = null;
+      //-------------------------------------------------------------
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Himmaphan.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Himmaphan.data.gz",
+        frameworkUrl: buildUrl + "/Himmaphan.framework.js.gz",
+        codeUrl: buildUrl + "/Himmaphan.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "onemoby",
+        productName: "Himmaphan",
+        productVersion: "0.1",
+        showBanner: unityShowBanner,
+      };
+
+
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) 
+      {
+            //container.className = "unity-mobile";
+            // Avoid draining fillrate performance on mobile devices,
+            // and default/override low DPI mode on mobile browsers.
+            config.devicePixelRatio = 1;
+            //unityShowBanner('WebGL builds are not supported on mobile devices.');
+            var meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+            document.getElementsByTagName('head')[0].appendChild(meta);
+            container.className = "unity-mobile";
+            mobile = true;
+      } 
+      else 
+      {
+        //canvas.style.width = "960px";
+        //canvas.style.height = "600px";
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      }
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+
+
+
+
+          //loadingBar.style.display = "none";
+          //fullscreenButton.onclick = () => {
+          //  unityInstance.SetFullscreen(1);
+          //};
+
+            done = true;
+            loadingBar.style.display = "none";
+            m_unityInstance = unityInstance;
+            //Resize
+            window.addEventListener('resize', onResize);
+            onResize();
+
+
+
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+
+
+
+
+        //Resize
+        function onResize() {
+            if (done) {
+                if (mobile) {
+                    canvas.style.width = (window.innerWidth - 0) + "px";
+                    canvas.style.height = (window.innerHeight - 0) + "px";
+                }
+                else {
+                    canvas.style.width = (window.innerWidth - 4) + "px";
+                    canvas.style.height = (window.innerHeight - 4) + "px";
+                }
+            }
+        }
+
+        //Sent By Unity
+        function HtmlMessage(code, str) {
+            if (code == 0) {
+                // callback example
+                m_unityInstance.SendMessage('HtmlCallback', 'Callback', (mobile) ? "1" : "0");
+            }
+            if (code == 1) {
+                // fullscreen
+                m_unityInstance.SetFullscreen(1);
+            }
+            if (code == 2) {
+                // goto url
+                window.location.replace(str);
+            }
+            if (code == 3) {
+                // Copy string to clipboard.
+                navigator.clipboard.writeText(str);
+            }
+            if (code == 4) {
+                // Clear Cache Manual.
+                clearCache();
+            }
+            if (code == 5) {
+                // Clear Cache Manual.
+                window.location.reload();
+            }
+        }
+
+
+
+
+        //Clear Memory Cache
+        function clearCache()
+        {
+            var req = indexedDB.deleteDatabase("UnityCache");
+            req.onsuccess = function () {
+                console.log("Deleted database successfully");
+            };
+            req.onerror = function () {
+                console.log("Couldn't delete database");
+            };
+            req.onblocked = function () {
+                console.log("Couldn't delete database due to the operation being blocked");
+            };
+        }
+
+
+
+
+
+
+
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

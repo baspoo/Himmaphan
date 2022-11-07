@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8442264914181377437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8442264914181377442}
+  - component: {fileID: 8442264914181377443}
+  - component: {fileID: 1334851670}
+  m_Layer: 0
+  m_Name: Store
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8442264914181377442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442264914181377437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8442264914181377443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442264914181377437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aedfeb9931292c4c8b63c6e08242ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  page:
+    prefab_admin: {fileID: 6298521050475606995, guid: aaf2b3f24b8e55b40ab2b57f06381e36, type: 3}
+    prefab_debug: {fileID: 1858720633617968236, guid: 372c3d50ab25f214e9879ffebfb591e7, type: 3}
+    prefab_consolePage: {fileID: 5622249508780573970, guid: 7981c082789a85e41b82ebc218121c96, type: 3}
+    prefab_settingPage: {fileID: 5910768571980122541, guid: fcde6d7dd4e61fe4ab648d939a85669b, type: 3}
+    prefab_bubblePage: {fileID: 5647626020987239728, guid: e8b8df1146ad2ee4792f121f0c97e5b4, type: 3}
+    prefab_boothPage: {fileID: 6704650970217348447, guid: 6422fc6201255454282bc650de4f759c, type: 3}
+    prefab_mapPage: {fileID: 7044696203958024291, guid: df1492d400f1fd147912847abdce4bef, type: 3}
+    prefab_helpPage: {fileID: 4618085063404278349, guid: 032135e0394afc84383bdee045b127b7, type: 3}
+    prefab_popupPage: {fileID: 4631106021302173457, guid: ba3eaaa26b7089246b0d504ef303f5e7, type: 3}
+  image:
+    defaultImage: {fileID: 2800000, guid: ab949d3946c3daf46874d9100de1d74b, type: 3}
+--- !u!114 &1334851670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442264914181377437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a0901b09b87b84ca668488c772a60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDummy: 1
+  playing:
+    EventData:
+      name: New year fastival
+      id: 0
+      startDate: 1664469276033
+      endDate: 1664469276033
+      logo: 0
+      landingImage: 
+      floor: 0
+      floors:
+      - name: Food Zone 1
+        id: 0
+        floorNo: 0
+        booths:
+        - name: Malee
+          id: 0
+          boothNo: 0
+          modelId: b_001
+          seller:
+            id: 0
+            sellerCode: 
+            description: 
+            cover: 
+            logo: 
+            eBrochure: 
+            company:
+              companyName: 
+              storeUrl: 
+          banners:
+          - id: 0
+            type: main
+            mediaType: image
+            url: http://1.bp.blogspot.com/-CY6Dp8YzhYU/UUtV35dxZeI/AAAAAAAAAGg/rhdO471T3kw/s1600/bestin-product-range.jpg
+      - name: Food Zone 2
+        id: 0
+        floorNo: 0
+        booths:
+        - name: Malee
+          id: 0
+          boothNo: 0
+          modelId: b_001
+          seller:
+            id: 0
+            sellerCode: 
+            description: 
+            cover: 
+            logo: 
+            eBrochure: 
+            company:
+              companyName: 
+              storeUrl: 
+          banners:
+          - id: 0
+            type: main
+            mediaType: image
+            url: http://1.bp.blogspot.com/-CY6Dp8YzhYU/UUtV35dxZeI/AAAAAAAAAGg/rhdO471T3kw/s1600/bestin-product-range.jpg
+    ProductDatas:
+    - name: Test Product 1
+      id: 0
+      description: 'Test Product Test Product Test Product Test Product '
+      images:
+      - name: 
+        id: 0
+        url: https://pyxis.nymag.com/v1/imgs/ca4/1c6/022556d510ca574298d353e3f2b3def1ff-28-ghost-in-shell-1.2x.h473.w710.jpg
+      - name: 
+        id: 0
+        url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOlcsLPZTLGCHDvz96Zf9qPDxkpXn5w2sauAla29vCkobShRG6uXCHC9DaBa396vdwvVs&usqp=CAU
+      - name: 
+        id: 0
+        url: https://www.hollywoodreporter.com/wp-content/uploads/2018/12/motoko_170914_01_copy.jpg
+      categories: []
+      packagings: []
+      tastes: []
+      styles: []
+      rawMaterials: []
+    - name: Test Product 2
+      id: 0
+      description: 'Test Product Test Product Test Product Test Product '
+      images:
+      - name: 
+        id: 0
+        url: https://pyxis.nymag.com/v1/imgs/ca4/1c6/022556d510ca574298d353e3f2b3def1ff-28-ghost-in-shell-1.2x.h473.w710.jpg
+      - name: 
+        id: 0
+        url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOlcsLPZTLGCHDvz96Zf9qPDxkpXn5w2sauAla29vCkobShRG6uXCHC9DaBa396vdwvVs&usqp=CAU
+      - name: 
+        id: 0
+        url: https://www.hollywoodreporter.com/wp-content/uploads/2018/12/motoko_170914_01_copy.jpg
+      categories: []
+      packagings: []
+      tastes: []
+      styles: []
+      rawMaterials: []
+    - name: Test Product 3
+      id: 0
+      description: 'Test Product Test Product Test Product Test Product '
+      images:
+      - name: 
+        id: 0
+        url: https://pyxis.nymag.com/v1/imgs/ca4/1c6/022556d510ca574298d353e3f2b3def1ff-28-ghost-in-shell-1.2x.h473.w710.jpg
+      - name: 
+        id: 0
+        url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOlcsLPZTLGCHDvz96Zf9qPDxkpXn5w2sauAla29vCkobShRG6uXCHC9DaBa396vdwvVs&usqp=CAU
+      - name: 
+        id: 0
+        url: https://www.hollywoodreporter.com/wp-content/uploads/2018/12/motoko_170914_01_copy.jpg
+      categories: []
+      packagings: []
+      tastes: []
+      styles: []
+      rawMaterials: []
+    PlistData:
+      version: 
+      apiData:
+        api_getEventList: http://smartobm-vsr-uat.thaitrade.com/api/public/events
+        api_getEventDetail: http://smartobm-vsr-uat.thaitrade.com/api/public/events/@
+        api_getProductList: http://smartobm-vsr-uat.thaitrade.com/api/public/sellers/@/products
+      config:
+        playerMoveSpeed: 0
+        cameraFieldOfView: 0
+        pitchSensitivity: 0
+        yawSensitivity: 0
+        guiScaleFactor: 0
+        guiWidth: 0
+        guiHeight: 0

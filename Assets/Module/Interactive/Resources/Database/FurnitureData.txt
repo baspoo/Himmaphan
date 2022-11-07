@@ -1,0 +1,27 @@
+Enable	Id	Name	Type	Size	Affect	Value	LevelRequest	Price	Currency	IsAvailableInShop
+TRUE	fur_garden_001	Plot	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_002	กระถาง	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_003	กระถาง	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_004	กระถาง	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_005	กระถาง	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_006	กระถาง	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_007	สปิ้งเกอร์	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_008	โซ่ร่าเซล	GardenPlot	Big	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_009	ถังน้ำ	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_010	คราด	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_011	บ้านนก	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_garden_012	ถังขยะ	GardenPlot	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_001	Rock	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_002	Stump	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_003	Wooden Barrel	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_004	Chair	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_005	Wooden Box	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_006	Scarecrow	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_007	Trolley	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_008	Bonfire	Furniture	Small	None	0	0	100	Coin	TRUE
+TRUE	fur_009	Well	Furniture	Big	None	0	0	100	Coin	TRUE
+TRUE	fur_010	Mound	Furniture	Big	None	0	0	100	Coin	TRUE
+TRUE	fur_011	Waterfall	Furniture	Big	None	0	0	100	Coin	TRUE
+TRUE	fur_012	Cottage	Furniture	Big	None	0	0	100	Coin	TRUE
+TRUE	fur_013	ม้านั่งยาว	Furniture	Big	None	0	0	100	Coin	TRUE
+TRUE	fur_014	รั้ว	Furniture	Small	None	0	0	100	Coin	TRUE

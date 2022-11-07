@@ -1,0 +1,198 @@
+Enable	Id	Name	Type	Rarity	Gender	LevelRequest	Price	Currency	IsAvailableInShop	IsFreeFirstTime	ShowInManual
+TRUE	cos_eye_001	Eye 1	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_002	Eye 2	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_003	Eye 3	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_004	Eye 4	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_005	Eye 5	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_006	Eye 6	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_007	Eye 7	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_008	Eye 8	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_009	Eye 9	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_010	Eye 10	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_011	Eye 11	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_012	Eye 12	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_013	Eye 13	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_014	Eye 14	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_015	Eye 15	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_016	Eye 16	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_017	Eye 17	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_018	Eye 18	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_019	Eye 19	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_020	Eye 20	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_021	Eye 21	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_022	Eye 22	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_023	Eye 23	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_024	Eye 24	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_025	Eye 25	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eye_026	Eye 26	Eye	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_001	Eyebrow 1	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_002	Eyebrow 2	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_003	Eyebrow 3	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_004	Eyebrow 4	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_005	Eyebrow 5	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_006	Eyebrow 6	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_007	Eyebrow 7	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_008	Eyebrow 8	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_009	Eyebrow 9	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_010	Eyebrow 10	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_011	Eyebrow 11	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_012	Eyebrow 12	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_013	Eyebrow 13	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_014	Eyebrow 14	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_015	Eyebrow 15	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_016	Eyebrow 16	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_017	Eyebrow 17	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_018	Eyebrow 18	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_019	Eyebrow 19	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_eyebrow_020	Eyebrow 20	Eyebrow	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_001	Mouth 1	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_002	Mouth 2	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_003	Mouth 3	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_004	Mouth 4	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_005	Mouth 5	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_006	Mouth 6	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_007	Mouth 7	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_008	Mouth 8	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_009	Mouth 9	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_010	Mouth 10	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_011	Mouth 11	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_012	Mouth 12	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_013	Mouth 13	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_014	Mouth 14	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_015	Mouth 15	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_016	Mouth 16	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_017	Mouth 17	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_018	Mouth 18	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_019	Mouth 19	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_mouth_020	Mouth 20	Mouth	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_001	Hair 1	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_002	Hair 2	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_003	Hair 3	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_004	Hair 4	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_005	Hair 5	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_006	Hair 6	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_007	Hair 7	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_008	Hair 8	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_009	Hair 9	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_010	Hair 10	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_011	Hair 11	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_012	Hair 12	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_013	Hair 13	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hair_014	Hair 14	Hair	Common		0	100	Coin	FALSE	TRUE	FALSE
+TRUE	cos_hat_001	Cap	Hat	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_hat_002	Bucket Hat	Hat	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_hat_003	Beret	Hat	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_hat_004	Headphone	Hat	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_005	Bow	Hat	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_006		Hat	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_007		Hat	Common		5	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_008		Hat	Common		5	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_009		Hat	Common		5	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_010		Hat	Common		10	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_011		Hat	Common		10	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_012		Hat	Common		10	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_013		Hat	Common		10	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_014		Hat	Common		10	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_015		Hat	Common		20	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_016		Hat	Common		20	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_017		Hat	Common		20	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_018		Hat	Common		20	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_019		Hat	Common		30	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_020		Hat	Common		30	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_021		Hat	Common		30	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_hat_022		Hat	Common		30	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_001	T-shirt	Shirt	Common	Man	0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_man_shirt_002	Hoodies	Shirt	Common	Man	0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_man_shirt_003	Suit	Shirt	Common	Man	0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_man_shirt_004		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_005		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_006		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_007		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_008		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_009		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_010		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_011		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_012		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_013		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_014		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_015		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_016		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_017		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_018		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_019		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_man_shirt_020		Shirt	Common	Man	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_001	T-shirt	Shirt	Common	Woman	0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_woman_shirt_002	Hoodies	Shirt	Common	Woman	0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_woman_shirt_003	Cardigan	Shirt	Common	Woman	0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_woman_shirt_004		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_005		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_006		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_007		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_008		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_009		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_010		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_011		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_012		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_013		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_014		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_015		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_016		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_017		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_woman_shirt_018		Shirt	Common	Woman	0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_001	Slacks	Trousers	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_trousers_002	Shorts	Trousers	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_trousers_003	Jogger Pants	Trousers	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_trousers_004	Pleated Skirt	Trousers	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_trousers_005		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_006		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_007		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_008		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_009		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_010		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_011		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_012		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_013		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_014		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_015		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_016		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_017		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_018		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_019		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_020		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_021		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_022		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_023		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_024		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_trousers_025		Trousers	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_shoe_001	Slip-On Brown	Shoe	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_shoe_002	Slip-On Gray	Shoe	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_shoe_003	Flip-Flops	Shoe	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_shoe_004	Boots	Shoe	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_shoe_005	Slipper	Shoe	Common		0	100	Coin	TRUE	TRUE	TRUE
+TRUE	cos_shoe_006		Shoe	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_shoe_007		Shoe	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_shoe_008		Shoe	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_shoe_009		Shoe	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_shoe_010		Shoe	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_001	Bag	Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_002	Wing	Bag	Common		0	20000	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_003	Hammer	Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_004		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_005		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_006		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_007		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_008		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_009		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_010		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_011		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_bag_012		Bag	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_001	แว่น	Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_002		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_003		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_004		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_005		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_006		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_007		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_008		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_009		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
+TRUE	cos_acc_010		Accessories	Common		0	100	Coin	TRUE	FALSE	TRUE
