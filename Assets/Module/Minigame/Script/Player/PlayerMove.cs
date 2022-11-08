@@ -25,43 +25,121 @@ namespace MiniGame.Player
         [SerializeField] JumpState jumpState = JumpState.Grounded;
         private bool stopJump;
         /*internal new*/
-        public Collider2D collider2d;
+        //public BoxCollider2D collider2d;
         /*internal new*/
-        public AudioSource audioSource;
+        //public AudioSource audioSource;
         public bool controlEnabled = true;
 
         [SerializeField] bool jump;
-        Vector2 move;
-        SpriteRenderer spriteRenderer;
-        internal Animator animator;
+        [SerializeField] bool holdslide;
+        [SerializeField] Vector2 move;
 
-        public Bounds Bounds => collider2d.bounds;
-
-        void Awake()
+        [SerializeField] StateModify stateModify;
+        [System.Serializable]
+        class StateModify 
         {
-            audioSource = GetComponent<AudioSource>();
-            collider2d = GetComponent<Collider2D>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            animator = GetComponent<Animator>();
+            public State jump;
+            public State ground;
+            public State slide;
+
+            [System.Serializable]
+            public class State
+            {
+                public JumpState state;
+                public Vector2 colliderOffset;
+                public Vector2 colliderSize;
+                public void OnModifyCollider(BoxCollider2D collider) {
+                    collider.offset = colliderOffset;
+                    collider.size = colliderSize;
+                }
+            }
         }
+
+
+        //SpriteRenderer spriteRenderer;
+        //internal Animator animator;
+
+        //public Bounds Bounds => collider2d.bounds;
+        PlayerData playerdata;
+        public void Init(PlayerData playerdata)
+        {
+            this.playerdata = playerdata;
+            //audioSource = GetComponent<AudioSource>();
+            //collider2d = GetComponent<BoxCollider2D>();
+            //spriteRenderer = GetComponent<SpriteRenderer>();
+            //animator = GetComponent<Animator>();
+            OnRun();
+        }
+
+        public bool IsCanJump
+        {
+            get {
+
+
+                if (jumpStep == 0 && jumpState == JumpState.Grounded)
+                    return true;
+                else if (jumpStep > 0 && jumpStep < maxJumpStep && jumpState == JumpState.InFlight)
+                    return true;
+
+                return false;
+            }
+        
+        }
+
+
+
+        public void OnJump()
+        {
+            if (IsCanJump)
+            {
+                jumpState = JumpState.PrepareToJump;
+            }
+        }
+        public void OnSlide()
+        {
+            if (jumpState == JumpState.Grounded)
+            {
+                holdslide = true;
+            }
+        }
+        public void OnStopSlide()
+        {
+            holdslide = false;
+        }
+
+        public void OnRun() 
+        {
+            IsRun = true;
+        }
+        public void OnStopRun()
+        {
+            IsRun = false;
+        }
+
+
+        public bool IsRun;
 
         protected override void Update()
         {
+            if (Input.GetButtonDown("Jump"))
+                OnJump();
+            if (Input.GetButtonDown("Jump"))
+                OnJump();
+
             if (controlEnabled)
             {
-                move.x = Input.GetAxis("Horizontal");
-                if ((jumpStep < maxJumpStep) && Input.GetButtonDown("Jump"))
+                if (IsRun)
                 {
-                    jumpState = JumpState.PrepareToJump;
+                    move.x = 1.0f;
                 }
-                else if (Input.GetButtonUp("Jump"))
+                else
                 {
-                    //stopJump = true;
+                    move.x = 0.0f;
                 }
             }
             else
             {
-                move.x = 0;
+                //move.x = 0;
             }
             UpdateJumpState();
             base.Update();
@@ -93,11 +171,48 @@ namespace MiniGame.Player
                     }
                     break;
                 case JumpState.Landed:
-                    jumpState = JumpState.Grounded;
+                    jumpState = holdslide? JumpState.SlideGround : JumpState.Grounded;
                     jumpStep = 0;
+                    break;
+                case JumpState.Grounded:
+                case JumpState.SlideGround:
+                    jumpState = holdslide ? JumpState.SlideGround : JumpState.Grounded;
+                    if (velocity.y != 0) jumpState = JumpState.InFlight;
+                    break;
+            }
+            StateHandle(jumpState);
+        }
+
+
+
+
+        void StateHandle(JumpState state)
+        {
+            switch (jumpState)
+            {
+                case JumpState.InFlight:
+                    if(velocity.y >= 0) stateModify.jump.OnModifyCollider(playerdata.handle.collider);
+                    else stateModify.ground.OnModifyCollider(playerdata.handle.collider);
+                    break;
+                case JumpState.Grounded:
+                    stateModify.ground.OnModifyCollider(playerdata.handle.collider);
+                    break;
+                case JumpState.SlideGround:
+                    stateModify.slide.OnModifyCollider(playerdata.handle.collider);
                     break;
             }
         }
+
+
+
+
+
+
+
+
+
+
+
 
         protected override void ComputeVelocity()
         {
@@ -117,23 +232,18 @@ namespace MiniGame.Player
                 if (velocity.y > 0)
                 {
                     velocity.y = velocity.y * jumpDeceleration;
+                    Debug.Log(velocity.y);
                 }
             }
 
-            if (move.x > 0.01f)
-                spriteRenderer.flipX = false;
-            else if (move.x < -0.01f)
-                spriteRenderer.flipX = true;
-
-            animator.SetBool("grounded", IsGrounded);
-            animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
-
+            playerdata.anim.VelocityRender( jumpState , velocity , maxSpeed, IsGrounded , holdslide );
             targetVelocity = move * maxSpeed;
         }
 
         public enum JumpState
         {
             Grounded,
+            SlideGround,
             PrepareToJump,
             Jumping,
             InFlight,

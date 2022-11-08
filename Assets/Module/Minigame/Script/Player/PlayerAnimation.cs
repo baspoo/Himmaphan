@@ -7,17 +7,28 @@ namespace MiniGame.Player
 {
     public class PlayerAnimation : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
+        public SpriteRenderer spriterender;
+        public Animator anim;
+        PlayerData playerdata;
+        public void Init(PlayerData playerdata)
+        {
+            this.playerdata = playerdata;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
+        public void VelocityRender(PlayerMove.JumpState state ,  Vector2 velocity , float maxSpeed , bool isGround, bool isSlide) 
+        {
+            //if (move.x > 0.01f)
+            //    spriterender.flipX = false;
+            //else if (move.x < -0.01f)
+            //    spriterender.flipX = true;
+
+            anim.SetBool("grounded", isGround);
+            anim.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
         }
+
+
     }
 }
 

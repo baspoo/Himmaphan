@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleObj : MonoBehaviour
+namespace MiniGame
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ObstacleObj : CollectObj
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
     }
 }

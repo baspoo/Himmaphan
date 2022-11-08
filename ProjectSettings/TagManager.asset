@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Chair
-  - Car
+  - Obstacle
+  - Coin
+  - Booster
   layers:
   - Default
   - TransparentFX

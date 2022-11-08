@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemObj : MonoBehaviour
+namespace MiniGame
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ItemObj : CollectObj
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
     }
 }

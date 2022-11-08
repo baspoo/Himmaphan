@@ -7,17 +7,41 @@ namespace MiniGame.Player
 {
     public class PlayerData : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
+        [System.Serializable]
+        public class Stat 
+        {
+            public int Hp;
+            public int Score;
+            public float Speed;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
 
+
+        public Stat stat;
+        public PlayerMove move;
+        public PlayerHandle handle;
+        public PlayerAnimation anim;
+        public PlayerCollect collect;
+
+
+
+
+        private void Awake()
+        {
+            Init();
         }
+        public void Init()
+        {
+            move.Init(this);
+            handle.Init(this);
+            anim.Init(this);
+            collect = new PlayerCollect(this);
+        }
+
+
+
+
     }
 }
 
