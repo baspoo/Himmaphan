@@ -5,8 +5,20 @@ using UnityEngine;
 
 namespace MiniGame.Player
 {
+    public class PlayerBase : MonoBehaviour 
+    {
+        protected PlayerData playerdata;
+        protected bool isReay => playerdata == null ? false : playerdata.isReady;
+    }
+
+
     public class PlayerData : MonoBehaviour
     {
+
+
+        public static PlayerData player;
+
+
 
         [System.Serializable]
         public class Stat 
@@ -14,30 +26,107 @@ namespace MiniGame.Player
             public int Hp;
             public int Score;
             public float Speed;
+            public bool isDead;
+            public void Init(PlayerData player)
+            {
+                Hp = player.defaultStat.MaxHp;
+                Speed = player.defaultStat.BeginSpeed;
+                Score = 0;
+                isDead = false;
+            }
+        }
+        [System.Serializable]
+        public class DefaultStat
+        {
+            public int MaxHp;
+            public float BeginSpeed;
         }
 
 
 
+
+
+
+
+        [System.Serializable]
+        public class BuffBooster
+        {
+            List<BoosterRuntime> Boosters = new List<BoosterRuntime>();
+            public void Init() {
+                Boosters = new List<BoosterRuntime>();
+            }
+            public void Add(BoosterRuntime data)
+            {
+                Remove(data);
+                Boosters.Add(data);
+            }
+            public void Remove(BoosterRuntime data)
+            {
+                Boosters.RemoveAll(x=>x.Data.BoosterType == data.Data.BoosterType);
+            }
+            public bool IsActiveBooster(BoosterType type)
+            {
+                if (Boosters.Count == 0) return false;
+                return GetBooster(type) != null;
+            }
+            public BoosterRuntime GetBooster(BoosterType type)
+            {
+                if (Boosters.Count == 0) return null;
+                return Boosters.Find(x => x.Data.BoosterType == type);
+            }
+        }
+
+
+
+
+
+
+
+
+       
         public Stat stat;
+        public DefaultStat defaultStat;
+        public BuffBooster buffbooster;
         public PlayerMove move;
         public PlayerHandle handle;
         public PlayerAnimation anim;
-        public PlayerCollect collect;
+        public GameBalancing balancing { get; private set; }
+        public bool isReady { get; private set; }
 
 
 
-
-        private void Awake()
-        {
-            Init();
-        }
         public void Init()
         {
+            player = this;
+            isReady = false;
+            stat.Init(this);
+            buffbooster.Init();
             move.Init(this);
             handle.Init(this);
             anim.Init(this);
-            collect = new PlayerCollect(this);
+
+            balancing = new GameBalancing();
+            balancing.Init(this);
         }
+        public void StartGame()
+        {
+            gameObject.SetActive(true);
+            isReady = true;
+            move.OnRun();
+        }
+        public void GameOver()
+        {
+            move.OnStopRun();
+            isReady = false;
+        }
+
+
+
+
+
+
+
+
 
 
 

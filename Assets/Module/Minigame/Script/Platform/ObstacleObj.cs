@@ -4,9 +4,18 @@ using UnityEngine;
 
 namespace MiniGame
 {
-    public class ObstacleObj : CollectObj
+    public class ObstacleObj : CollectBase
     {
 
+        public int Damage;
+        protected override void OnBegin()
+        {
+
+        }
+        protected override void OnHited(Player.PlayerData player)
+        {
+            player.handle.AddDamage(Damage);
+        }
 
     }
 }

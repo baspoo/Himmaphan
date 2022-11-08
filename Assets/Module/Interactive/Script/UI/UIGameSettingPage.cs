@@ -61,8 +61,8 @@ public class UIGameSettingPage : UIBase
     public void Close()
     {
         SceneHandle.instance.lighting.Blur(false);
-        if(!ismute)
-            Playlist.let.sfx_back.Play();
+        //if(!ismute)
+            //Playlist.let.sfx_back.Play();
 
         SaveSetting();
         OnClose();
@@ -255,8 +255,8 @@ public class UIGameSettingPage : UIBase
 
     void DoDetect()
     {
-        if(!ismute)
-            Playlist.let.sfx_click.Play();
+        //if(!ismute)
+            //Playlist.let.sfx_click.Play();
 
         DoClear();
         DoSet();

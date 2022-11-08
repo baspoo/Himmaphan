@@ -27,47 +27,6 @@ public class Playlist : MonoBehaviour
 
 
 
-
-    public Backgrounds backgroundmusic = new Backgrounds();
-    [System.Serializable]
-    public class Backgrounds
-    {
-        //public SoundData bgm_mainmenu;
-    }
-
-
-    public static Sfx let => instance.playlist;
-    public Sfx playlist = new Sfx();
-    [System.Serializable]
-    public class Sfx
-    {
-        [Header("Interface ------------------------------------------")]
-        public AudioClip sfx_click;
-        public AudioClip sfx_select;
-        public AudioClip sfx_submit;
-        //public AudioClip sfx_message;
-        //public AudioClip sfx_notif;
-        //public AudioClip sfx_ping;
-        public AudioClip sfx_back;
-        //public AudioClip sfx_openbag;
-        public AudioClip sfx_movepage;
-       
-
-
-        //public AudioClip sfx_pages => sfx_page_many[sfx_page_many.Length.Random()];
-        //[SerializeField] AudioClip[] sfx_page_many;
-
-
-
-    }
-
-
-
-
-
-
-
-
 }
 
 

@@ -44,6 +44,7 @@ public class PoolObj : MonoBehaviour {
 	public Service.Callback.callback onDeactive;
 	PoolGroup m_group;
 
+	public List<PoolObj> PoolObjs => m_group.PoolObjs;
 	public void init(  PoolGroup group )
 	{
 		ID = this.GetInstanceID();

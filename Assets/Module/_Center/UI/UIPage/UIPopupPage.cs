@@ -69,7 +69,7 @@ public class UIPopupPage : UIBase
     void DesPage()
     {
         SceneHandle.instance.lighting.Blur(false);
-        Playlist.let.sfx_click.Play();
+        //Playlist.let.sfx_click.Play();
         OnClose();
     }
 

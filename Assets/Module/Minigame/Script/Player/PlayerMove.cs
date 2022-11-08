@@ -6,33 +6,22 @@ namespace MiniGame.Player
 {
     public class PlayerMove : KinematicObject
     {
-        public AudioClip jumpAudio;
-        public AudioClip respawnAudio;
-        public AudioClip ouchAudio;
-
-        /// <summary>
-        /// Max horizontal speed of the player.
-        /// </summary>
+        //public AudioClip jumpAudio;
+        //public AudioClip respawnAudio;
+        //public AudioClip ouchAudio;
         public float maxSpeed = 7;
-        /// <summary>
-        /// Initial jump velocity at the start of a jump.
-        /// </summary>
         public int maxJumpStep => jumpTakeOffSpeeds.Length;
         public float[] jumpTakeOffSpeeds = new float[2] { 4.0f, 6.0f };
-        public float jumpModifier = 1f;
-        public float jumpDeceleration = 1f;
-
+        [SerializeField] float jumpModifier = 1f;
+        [SerializeField] float jumpDeceleration = 1f;
+        [SerializeField] int jumpStep = 0;
         [SerializeField] JumpState jumpState = JumpState.Grounded;
-        private bool stopJump;
-        /*internal new*/
-        //public BoxCollider2D collider2d;
-        /*internal new*/
-        //public AudioSource audioSource;
-        public bool controlEnabled = true;
-
-        [SerializeField] bool jump;
-        [SerializeField] bool holdslide;
-        [SerializeField] Vector2 move;
+        bool stopJump;
+        bool IsRun;
+        bool jump;
+        bool holdslide;
+        float holdslideTime;
+        Vector2 move;
 
         [SerializeField] StateModify stateModify;
         [System.Serializable]
@@ -54,27 +43,12 @@ namespace MiniGame.Player
                 }
             }
         }
-
-
-        //SpriteRenderer spriteRenderer;
-        //internal Animator animator;
-
-        //public Bounds Bounds => collider2d.bounds;
-        PlayerData playerdata;
-        public void Init(PlayerData playerdata)
-        {
-            this.playerdata = playerdata;
-            //audioSource = GetComponent<AudioSource>();
-            //collider2d = GetComponent<BoxCollider2D>();
-            //spriteRenderer = GetComponent<SpriteRenderer>();
-            //animator = GetComponent<Animator>();
-            OnRun();
-        }
-
+      
         public bool IsCanJump
         {
-            get {
-
+            get
+            {
+                if (!isReay) return false;
 
                 if (jumpStep == 0 && jumpState == JumpState.Grounded)
                     return true;
@@ -83,13 +57,41 @@ namespace MiniGame.Player
 
                 return false;
             }
-        
         }
+
+        public bool IsFlying
+        {
+            get
+            {
+                if (jumpState == JumpState.InFlight)
+                    return true;
+                if (velocity.y != 0)
+                    return true;
+                return false;
+            }
+        }
+
+
+
+
+
+
+
+        public void Init(PlayerData playerdata)
+        {
+            this.playerdata = playerdata;
+            StateHandle(JumpState.Grounded);
+        }
+
+
+        
 
 
 
         public void OnJump()
         {
+            if (!isReay) return;
+
             if (IsCanJump)
             {
                 jumpState = JumpState.PrepareToJump;
@@ -97,56 +99,52 @@ namespace MiniGame.Player
         }
         public void OnSlide()
         {
-            if (jumpState == JumpState.Grounded)
+            if (!isReay) return;
+
+            if (!IsFlying)
             {
                 holdslide = true;
+                holdslideTime = 0.0f;
             }
         }
         public void OnStopSlide()
         {
-            holdslide = false;
+            //holdslide = false;
         }
 
         public void OnRun() 
         {
+            if (!isReay) return;
+
             IsRun = true;
         }
         public void OnStopRun()
         {
             IsRun = false;
+            enabled = false;
         }
 
 
-        public bool IsRun;
+      
 
         protected override void Update()
         {
-            if (Input.GetButtonDown("Jump"))
-                OnJump();
-            if (Input.GetButtonDown("Jump"))
-                OnJump();
+            if (!isReay) return;
 
-            if (controlEnabled)
+            if (IsRun)
             {
-                if (IsRun)
-                {
-                    move.x = 1.0f;
-                }
-                else
-                {
-                    move.x = 0.0f;
-                }
+                move.x = 1.0f;
             }
             else
             {
-                //move.x = 0;
+                move.x = 0.0f;
             }
             UpdateJumpState();
             base.Update();
         }
 
 
-        [SerializeField] int jumpStep = 0;
+   
         void UpdateJumpState()
         {
             jump = false;
@@ -201,6 +199,14 @@ namespace MiniGame.Player
                     stateModify.slide.OnModifyCollider(playerdata.handle.collider);
                     break;
             }
+
+            if (holdslide)
+            {
+                holdslideTime += Time.deltaTime;
+                if (holdslideTime > 0.05f)
+                    holdslide = false;
+            }
+            else holdslideTime = 0.0f;
         }
 
 
@@ -216,6 +222,8 @@ namespace MiniGame.Player
 
         protected override void ComputeVelocity()
         {
+            if (!isReay) return;
+
             //Debug.Log(jump);
             //Debug.Log(jumpSpte);
 
@@ -223,7 +231,6 @@ namespace MiniGame.Player
             {
                 var hight = jumpTakeOffSpeeds[jumpStep - 1];
                 velocity.y = hight * jumpModifier;
-                Debug.Log(velocity.y);
                 jump = false;
             }
             else if (stopJump)
@@ -236,8 +243,9 @@ namespace MiniGame.Player
                 }
             }
 
-            playerdata.anim.VelocityRender( jumpState , velocity , maxSpeed, IsGrounded , holdslide );
-            targetVelocity = move * maxSpeed;
+            var _maxSpeed = this.maxSpeed * playerdata.stat.Speed;
+            playerdata.anim.VelocityRender( jumpState , velocity , _maxSpeed, IsGrounded , holdslide );
+            targetVelocity = move * _maxSpeed;
         }
 
         public enum JumpState

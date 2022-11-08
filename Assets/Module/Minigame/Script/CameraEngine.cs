@@ -6,16 +6,25 @@ namespace MiniGame
 {
     public class CameraEngine : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
 
+
+        public Camera mainCamera;
+        public Cinemachine.CinemachineBrain cinemachineBrain;
+        public Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
+        public void Init()
+        {
+            cinemachineBrain.enabled = false;
+            cinemachineVirtualCamera.enabled = false;
         }
-
-        // Update is called once per frame
-        void Update()
+        public void StartGame()
         {
-
+            cinemachineBrain.enabled = true;
+            cinemachineVirtualCamera.enabled = true;
+        }
+        public void GameOver()
+        {
+            cinemachineBrain.enabled = false;
+            cinemachineVirtualCamera.enabled = false;
         }
     }
 }

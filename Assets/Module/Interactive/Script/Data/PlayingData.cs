@@ -18,7 +18,7 @@ public class PlayingData
     {
         Usage = new UsageData();
         EventData = new Data.EventData();
-        PlistData = new Data.PlistData();
+        //PlistData = new Data.PlistData();
         ProductDatas = new List<Data.ProductData>();
         CurrentFloor = null;
     }
@@ -31,7 +31,7 @@ public class PlayingData
     public UsageData Usage;
     public Data.EventData EventData;
     public List<Data.ProductData> ProductDatas;
-    public Data.PlistData PlistData;
+    //public Data.PlistData PlistData;
 
 
     public Data.FloorData CurrentFloor { get; private set; }

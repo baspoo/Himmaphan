@@ -3598,12 +3598,12 @@ public class Service : MonoBehaviour {
 			if(Application.isPlaying)
 
 			for (int n = 0; n < count; n++)
-				Destroy (_tran.GetChild(n).gameObject );
+				Destroy (_tran.GetChild(0).gameObject );
 
 			else
 
 				for (int n = 0; n < count; n++)
-					DestroyImmediate(_tran.GetChild(n).gameObject);
+					DestroyImmediate(_tran.GetChild(0).gameObject);
 
 		}
 		public static List<GameObject> GetAllParent( Transform _tran){

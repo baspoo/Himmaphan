@@ -109,8 +109,9 @@ public class UIBubble : UIBase
         this.imgBg.Update();
     }
 
-    public void OnSubmit() {
-        Playlist.let.sfx_click.Play();
+    public void OnSubmit() 
+    {
+        //Playlist.let.sfx_click.Play();
         action?.Invoke();
     }
     public void OnCloseBubble()

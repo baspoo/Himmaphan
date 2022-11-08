@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace MiniGame.Player
 {
-    public class PlayerAnimation : MonoBehaviour
+    public class PlayerAnimation : PlayerBase
     {
 
         public SpriteRenderer spriterender;
         public Animator anim;
-        PlayerData playerdata;
         public void Init(PlayerData playerdata)
         {
             this.playerdata = playerdata;
@@ -27,7 +26,11 @@ namespace MiniGame.Player
             anim.SetBool("grounded", isGround);
             anim.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
         }
-
+        public void OnDead() 
+        {
+            anim.SetBool("grounded", true);
+            anim.SetFloat("velocityX", 0.0f );
+        }
 
     }
 }

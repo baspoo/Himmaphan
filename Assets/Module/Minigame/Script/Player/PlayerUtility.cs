@@ -2,11 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MiniGame
+namespace MiniGame.Player 
 {
-    public class ItemObj : CollectObj
+    public class PlayerUtility
     {
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
 }
+

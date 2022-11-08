@@ -36,14 +36,14 @@ public class SceneHandle : MonoBehaviour
 
     public void ApplyPlist() 
     {
-        player.agent.speed = PlayingData.Inst.PlistData.config.playerMoveSpeed;
-        cameraManager.cinemachineVirtualCamera.m_Lens.FieldOfView = PlayingData.Inst.PlistData.config.cameraFieldOfView;
-        cameraManager.dragCamera.PitchSensitivity = PlayingData.Inst.PlistData.config.pitchSensitivity;
-        cameraManager.dragCamera.YawSensitivity = PlayingData.Inst.PlistData.config.yawSensitivity;
+        //player.agent.speed = PlayingData.Inst.PlistData.config.playerMoveSpeed;
+        //cameraManager.cinemachineVirtualCamera.m_Lens.FieldOfView = PlayingData.Inst.PlistData.config.cameraFieldOfView;
+        //cameraManager.dragCamera.PitchSensitivity = PlayingData.Inst.PlistData.config.pitchSensitivity;
+        //cameraManager.dragCamera.YawSensitivity = PlayingData.Inst.PlistData.config.yawSensitivity;
 
-        InterfaceRoot.instance.uiCamera.orthographicSize = PlayingData.Inst.PlistData.config.guiScaleFactor;
-        InterfaceRoot.instance.uiRoot.manualWidth = PlayingData.Inst.PlistData.config.guiWidth;
-        InterfaceRoot.instance.uiRoot.manualHeight = PlayingData.Inst.PlistData.config.guiHeight;
+        //InterfaceRoot.instance.uiCamera.orthographicSize = PlayingData.Inst.PlistData.config.guiScaleFactor;
+        //InterfaceRoot.instance.uiRoot.manualWidth = PlayingData.Inst.PlistData.config.guiWidth;
+        //InterfaceRoot.instance.uiRoot.manualHeight = PlayingData.Inst.PlistData.config.guiHeight;
     }
 
 

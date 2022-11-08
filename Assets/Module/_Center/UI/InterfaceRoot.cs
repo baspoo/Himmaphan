@@ -16,7 +16,7 @@ public class InterfaceRoot : UIBase
     }
 
 
-    Camera mainCamera => SceneHandle.instance.cameraManager.mainCamera;
+    public Camera mainCamera;
     public UIRoot uiRoot;
     public UIPanel uiPanel;
     public UIPanel uiPanelTop;

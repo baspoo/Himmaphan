@@ -289,7 +289,7 @@ public class UIBase : MonoBehaviour
         RefreshTime(()=> { IsMute = false; });
         switch (sfx)
         {
-            case UISettingPage.Sfx.movepage: Playlist.let.sfx_movepage.Play(); break;
+            //case UISettingPage.Sfx.movepage: Playlist.let.sfx_movepage.Play(); break;
             //case UISettingPage.Sfx.page: Playlist.let.sfx_pages.Play(); break;
         }
     }

@@ -6,16 +6,24 @@ namespace MiniGame
 {
     public class Manager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+       
+        IEnumerator Start()
+        {
+           
+            yield return StartCoroutine(ManagerCenter.Init());
+            yield return new WaitForEndOfFrame();
+
+            GameControl.instance.Init();
+            Complete();
+        }
+        void Complete() 
         {
 
-        }
+            //** test startgame.
+            GameControl.instance.StartGame();
 
-        // Update is called once per frame
-        void Update()
-        {
 
         }
+        
     }
 }

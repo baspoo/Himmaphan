@@ -7,7 +7,7 @@ namespace MiniGame.Player
     /// <summary>
     /// Implements game physics for some in game entity.
     /// </summary>
-    public class KinematicObject : MonoBehaviour
+    public class KinematicObject : PlayerBase
     {
         /// <summary>
         /// The minimum normal (dot product) considered suitable for the entity sit on.
