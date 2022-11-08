@@ -8,8 +8,36 @@ namespace MiniGame {
 
 
 #if UNITY_EDITOR
+        public void FindGround(PlatformObj platform) 
+        {
+            foreach (var obj in platform.floor.GetAllNode())
+            {
+                var item = obj.GetComponent<GroundCollider>();
+                if (item != null)
+                {
+                    if (obj.tag == "Ground" && obj.GetComponent<Collider2D>() != null)
+                    {
+                        item.platformObj = platform;
+                    }
+                    else 
+                    {
+                        DestroyImmediate(item);
+                    }
+                }
+                else 
+                {
+                    if (obj.tag == "Ground" && obj.GetComponent<Collider2D>() != null) 
+                    {
+                        item = obj.gameObject.AddComponent<GroundCollider>();
+                        item.platformObj = platform;
+                    }
+                }
+            }
+        }
         public RuntimeBtn View = new RuntimeBtn((r) => {
             PlatformObj platform = r.Gameobject.GetComponent<PlatformObj>();
+            platform.FindGround(platform);
+
             if (platform.objects.GetAllParent().Count == 0)
             {
                 Debug.Log("Genarateion");
@@ -26,11 +54,12 @@ namespace MiniGame {
         });
         public RuntimeBtn Remove = new RuntimeBtn((r) => {
             PlatformObj platform = r.Gameobject.GetComponent<PlatformObj>();
+            platform.FindGround(platform);
             platform.objects.DesAllParent();
         });
         public RuntimeBtn Save = new RuntimeBtn((r) => {
             PlatformObj platform = r.Gameobject.GetComponent<PlatformObj>();
-
+            platform.FindGround(platform);
 
             List<Node> Nodes = new List<Node>();
             foreach (var obj in platform.objects.GetAllParent()) 
@@ -89,13 +118,31 @@ namespace MiniGame {
         public Transform objects;
         PlatformManager manager;
         bool isReady;
+        bool isEnter;
 
         public void Init(PlatformManager manager)
         {
             isReady = true;
+            isEnter = false;
             this.manager = manager;
             Genarate();
         }
+
+
+
+        public void OnEnter() 
+        {
+            if (isReady && !isEnter) 
+            {
+                isEnter = true;
+                foreach (var pool in m_pools)
+                {
+                    pool.OnEnter();
+                }
+            }
+        }
+
+
 
         List<CollectBase> m_pools = new List<CollectBase>();
         void Genarate() 

@@ -16,7 +16,7 @@ namespace MiniGame
     {
         public BoosterType BoosterType;
         public float Duration;
-        public int Value;
+        public double Value;
         public System.DateTime Time;
     }
     public class BoosterRuntime
@@ -49,12 +49,18 @@ namespace MiniGame
             var boosterRuntime = HandleAction();
             player.handle.AddBooster(boosterRuntime);
         }
+        protected override void OnComming()
+        {
+
+        }
+        public override void OnEnter()
+        {
+
+        }
 
 
 
-
-
-        BoosterRuntime HandleAction() 
+        public BoosterRuntime HandleAction() 
         {
             var boosterRuntime = new BoosterRuntime() {
                 Data = Data,
@@ -92,7 +98,7 @@ namespace MiniGame
                     break;
                 case BoosterType.LifePoint:
                     boosterRuntime.EventStart = (p) => {
-                        p.handle.AddLifePoint(Data.Value);
+                        p.handle.AddLifePoint((int)Data.Value);
                     };
                     break;
                 case BoosterType.Boom:

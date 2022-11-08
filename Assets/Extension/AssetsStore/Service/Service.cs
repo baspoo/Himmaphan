@@ -3173,18 +3173,35 @@ public class Service : MonoBehaviour {
 
 		public class Update 
 		{
+			public Update() 
+			{
+			
+			}
+			public Update(float max = 1.0f, float speed = 1.0f)
+			{
+				m_max = max;
+				m_speed = speed;
+			}
 			public bool IsPause = false;
 			public float Runtime = 0.0f;
 			System.Action m_timeout;
+			float m_max, m_speed;
+			public void OnUpdate( System.Action timeout = null)
+			{
+				OnUpdate(m_max, m_speed, timeout );
+			}
 			public void OnUpdate(float max = 1.0f , float speed = 1.0f , System.Action timeout = null ) 
 			{
+
+				m_max = max;
+				m_speed = speed;
 				m_timeout = timeout;
 				if (IsPause)
 					return;
 
-				if (Runtime < max)
+				if (Runtime < m_max)
 				{
-					Runtime += UnityEngine.Time.deltaTime * speed;
+					Runtime += UnityEngine.Time.deltaTime * m_speed;
 				}
 				else 
 				{

@@ -16,6 +16,13 @@ namespace MiniGame
         {
             player.handle.AddDamage(Damage);
         }
+        protected override void OnComming()
+        {
 
+        }
+        public override void OnEnter()
+        {
+
+        }
     }
 }

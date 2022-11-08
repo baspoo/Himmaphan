@@ -7,7 +7,7 @@ namespace MiniGame
 {
     public enum CollectType 
     { 
-        Obstacle,Coin,Booster
+        Obstacle,Coin,Booster,Ground
     }
     public enum HitEventType
     {
@@ -20,8 +20,9 @@ namespace MiniGame
         public SpriteRenderer spriteRender;
         public Collider2D collider;
         public HitEventType hitEventType;
+        [SerializeField] float distanceComming = 5;
         bool IsHit;
-
+        bool IsComming;
 
         protected virtual void OnBegin()
         {
@@ -31,20 +32,56 @@ namespace MiniGame
         {
 
         }
+        protected virtual void OnComming()
+        {
+
+        }
+        public virtual void OnEnter()
+        {
+
+        }
+
+
+
 
         PlatformObj platform;
         public void Init(PlatformObj platform ) 
         {
             this.platform = platform;
             IsHit = false;
+            IsComming = false;
             collider.enabled = true;
             gameObject.SetActive(true);
+
+            OnUpdate = null;
+            OnUpdate += DistanceComming;
             OnBegin();
         }
+        void DistanceComming()
+        {
+            if (IsComming || hitEventType == HitEventType.Solid || distanceComming == 0.0f)
+            {
+                OnUpdate -= DistanceComming;
+            }
+            else
+            {
+                var dist = transform.position.x - Player.PlayerData.player.transform.position.x;
+                if (dist > 0 && dist <= distanceComming)
+                {
+                    OnUpdate -= DistanceComming;
+                    IsComming = true;
+                    OnComming();
+                }
+            }
+        }
+
+
+
         public void DisableCollider() 
         {
             collider.enabled = false;
         }
+
 
 
         public void OnHit( Player.PlayerData player )

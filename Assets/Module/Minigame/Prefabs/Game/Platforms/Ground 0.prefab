@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 685181624044716582}
   - component: {fileID: 685181624044716581}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Ground 0
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685181624694534623}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Objects
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685181624985384759}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -141,7 +141,8 @@ GameObject:
   - component: {fileID: 685181625774993337}
   - component: {fileID: 685181625774993343}
   - component: {fileID: 685181625774993336}
-  m_Layer: 13
+  - component: {fileID: 3127364890271770266}
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -239,3 +240,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &3127364890271770266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685181625774993338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eb16779ae9bc343811711f53f24f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformObj: {fileID: 685181624044716581}

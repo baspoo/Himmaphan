@@ -87,7 +87,9 @@ namespace MiniGame
                 p.transform.localPosition = new Vector3( floorLenght * countPlatformGenarate , 0.0f,0.0f);
                 m_platformObjs.Add(p);
                 countPlatformGenarate++;
+                GameControl.instance.background.Push(p,m_scenePlatform);
             }
+           
         }
         public void Trash(PlatformObj platform)
         {

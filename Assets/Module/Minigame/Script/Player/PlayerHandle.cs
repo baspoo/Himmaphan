@@ -74,6 +74,12 @@ namespace MiniGame.Player
                     break;
 
                 case "Ground":
+                    var ground = hit.GetComponent<GroundCollider>();
+                    if (ground != null)
+                    {
+                        if (ground.platformObj == null) Debug.Log(ground.name);
+                        ground.OnEnter();
+                    }
                     break;
 
                 case "DeadZone":
@@ -97,13 +103,8 @@ namespace MiniGame.Player
         {
             if (!playerdata.isReady || playerdata.stat.isDead) return;
 
-            var buff = playerdata.buffbooster.GetBooster(BoosterType.X2Score);
-            if (buff != null) 
-            {
-                score = score * buff.Data.Value;
-            }
-
-            playerdata.stat.Score += score;
+            var addscore = (int)(score * playerdata.buffbooster.active.X2ScoreValue);
+            playerdata.stat.Score += addscore;
         }
         #endregion
 
@@ -172,7 +173,7 @@ namespace MiniGame.Player
             }
             else 
             {
-                if (playerdata.buffbooster.IsActiveBooster(BoosterType.Immortal))
+                if (playerdata.buffbooster.active.IsImmortal)
                     return;
 
                 playerdata.stat.Hp -= damage;

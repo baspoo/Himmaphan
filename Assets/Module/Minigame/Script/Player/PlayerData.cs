@@ -47,10 +47,39 @@ namespace MiniGame.Player
 
 
 
-
         [System.Serializable]
         public class BuffBooster
         {
+            public QuickShort active = new QuickShort();
+            public class QuickShort 
+            {
+                public bool IsMagnet;
+                public bool IsImmortal;
+                public double X2ScoreValue;
+                public void Set(BoosterRuntime data , bool active ) 
+                {
+                    switch (data.Data.BoosterType)
+                    {
+                        case BoosterType.Magnet:
+                            IsMagnet = active;
+                            break;
+                        case BoosterType.Immortal:
+                            IsImmortal = active;
+                            break;
+                        case BoosterType.X2Score:
+                            X2ScoreValue = active?data.Data.Value : 1;
+                            break;
+                        case BoosterType.LifePoint:
+                            break;
+                        case BoosterType.Boom:
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+
             List<BoosterRuntime> Boosters = new List<BoosterRuntime>();
             public void Init() {
                 Boosters = new List<BoosterRuntime>();
@@ -59,9 +88,11 @@ namespace MiniGame.Player
             {
                 Remove(data);
                 Boosters.Add(data);
+                active.Set(data,true);
             }
             public void Remove(BoosterRuntime data)
             {
+                active.Set(data, false);
                 Boosters.RemoveAll(x=>x.Data.BoosterType == data.Data.BoosterType);
             }
             public bool IsActiveBooster(BoosterType type)

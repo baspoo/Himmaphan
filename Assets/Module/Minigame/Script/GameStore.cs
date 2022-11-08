@@ -27,7 +27,7 @@ namespace MiniGame
             public List<ObstacleObj> obstacles;
             public CollectBase Find(CollectType type , string objectId) 
             {
-                Debug.Log($"Find {type} {objectId}");
+                //Debug.Log($"Find {type} {objectId}");
 
                 CollectBase collectBase = null;
                 switch (type)
@@ -52,7 +52,7 @@ namespace MiniGame
         public class ScenePlatform
         {
             public string platformName;
-            public List<GameObject> backgrounds;
+            public List<BackgroundObj> backgrounds;
             public List<PlatformObj> platformObjs;
         }
         public Page page;

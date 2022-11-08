@@ -7,7 +7,7 @@ using UnityEngine;
 public class BasePool : MonoBehaviour
 {
 	PoolObj m_pool = null;
-	PoolObj pool
+	protected PoolObj pool
 	{
 		get
 		{
@@ -26,6 +26,12 @@ public class BasePool : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	public System.Action OnUpdate;
+    private void Update()
+    {
+		OnUpdate?.Invoke();
 	}
 }
 

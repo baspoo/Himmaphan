@@ -35,6 +35,30 @@ namespace MiniGame
 
 
 
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Player.PlayerData.player.handle.AddBooster(GameStore.instance.objectData.boosters[0].HandleAction());
+            }
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Player.PlayerData.player.handle.AddBooster(GameStore.instance.objectData.boosters[1].HandleAction());
+            }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Player.PlayerData.player.handle.AddBooster(GameStore.instance.objectData.boosters[2].HandleAction());
+            }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                Player.PlayerData.player.handle.AddBooster(GameStore.instance.objectData.boosters[3].HandleAction());
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Player.PlayerData.player.handle.AddBooster(GameStore.instance.objectData.boosters[4].HandleAction());
+            }
+#endif
+
+
 
             if ( Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) ) 
             {

@@ -14,6 +14,13 @@ namespace MiniGame
         {
 
         }
+        protected override void OnComming()
+        {
 
+        }
+        public override void OnEnter()
+        {
+
+        }
     }
 }
