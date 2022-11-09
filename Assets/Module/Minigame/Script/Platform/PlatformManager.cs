@@ -131,6 +131,40 @@ namespace MiniGame
 
 
 
+
+
+
+        int boosterLocationCounter = 0;
+        int boosterLocationCounterMax = 2;
+        int boosterGenaratePercents = 45;
+        public bool IsCanGenBooster() 
+        {
+            boosterLocationCounter++;
+            if (boosterLocationCounter >= boosterLocationCounterMax) 
+            {
+                if (100.Random() < boosterGenaratePercents)
+                {
+                    boosterLocationCounter = 0;
+                    return true;
+                }
+                else return false;
+            }
+            else return false;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         bool isStartting = false;
         void DoStart() 
         {

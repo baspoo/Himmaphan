@@ -9,7 +9,10 @@ namespace MiniGame.Player
     {
 
         public SpriteRenderer spriterender;
-        public Animator anim;
+        public Animator animGraphic;
+        public Animation animRoot;
+
+
         public void Init(PlayerData playerdata)
         {
             this.playerdata = playerdata;
@@ -23,13 +26,16 @@ namespace MiniGame.Player
             //else if (move.x < -0.01f)
             //    spriterender.flipX = true;
 
-            anim.SetBool("grounded", isGround);
-            anim.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+            animGraphic.SetBool("grounded", isGround);
+            animGraphic.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+            if(isSlide) spriterender.color = Color.white;
+            else spriterender.color = Color.yellow;
         }
-        public void OnDead() 
+        public void OnDead(  ) 
         {
-            anim.SetBool("grounded", true);
-            anim.SetFloat("velocityX", 0.0f );
+            animRoot.Play("playerdead");
+            animGraphic.SetBool("grounded", true);
+            animGraphic.SetFloat("velocityX", 0.0f );
         }
 
     }

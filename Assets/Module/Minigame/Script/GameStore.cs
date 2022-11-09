@@ -27,8 +27,6 @@ namespace MiniGame
             public List<ObstacleObj> obstacles;
             public CollectBase Find(CollectType type , string objectId) 
             {
-                //Debug.Log($"Find {type} {objectId}");
-
                 CollectBase collectBase = null;
                 switch (type)
                 {
@@ -40,6 +38,25 @@ namespace MiniGame
                         break;
                     case CollectType.Booster:
                         collectBase = boosters.Find(x => x.objectId == objectId);
+                        break;
+                    default:
+                        break;
+                }
+                return collectBase;
+            }
+            public CollectBase FindRandom(CollectType type )
+            {
+                CollectBase collectBase = null;
+                switch (type)
+                {
+                    case CollectType.Obstacle:
+                        collectBase = obstacles[obstacles.Count.Random()];
+                        break;
+                    case CollectType.Coin:
+                        collectBase = coins[coins.Count.Random()];
+                        break;
+                    case CollectType.Booster:
+                        collectBase = boosters[boosters.Count.Random()];
                         break;
                     default:
                         break;
@@ -59,8 +76,10 @@ namespace MiniGame
         [System.Serializable]
         public class Page
         {
-
-
+            public GameObject prefab_welcomePage;
+            public GameObject prefab_consolePage;
+            public GameObject prefab_settingPage;
+            public GameObject prefab_gameoverPage;
         }
 
 

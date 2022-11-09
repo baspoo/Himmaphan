@@ -53,9 +53,23 @@ namespace MiniGame.Player
             public QuickShort active = new QuickShort();
             public class QuickShort 
             {
+                public QuickShort() {
+                    IsMagnet = false;
+                    IsImmortal = false;
+                    X2ScoreValue = 1;
+                }
                 public bool IsMagnet;
                 public bool IsImmortal;
+                public bool IsTurbo;
                 public double X2ScoreValue;
+                public bool IsProtectHp 
+                {
+                    get 
+                    {
+                        return IsImmortal || IsTurbo;
+                    }
+                }
+
                 public void Set(BoosterRuntime data , bool active ) 
                 {
                     switch (data.Data.BoosterType)
@@ -71,7 +85,8 @@ namespace MiniGame.Player
                             break;
                         case BoosterType.LifePoint:
                             break;
-                        case BoosterType.Boom:
+                        case BoosterType.Turbo:
+                            IsTurbo = active;
                             break;
                         default:
                             break;
@@ -138,6 +153,7 @@ namespace MiniGame.Player
 
             balancing = new GameBalancing();
             balancing.Init(this);
+            gameObject.SetActive(false);
         }
         public void StartGame()
         {
@@ -147,7 +163,10 @@ namespace MiniGame.Player
         }
         public void GameOver()
         {
+            handle.collider.enabled = false;
+            handle.rigi.simulated = false;
             move.OnStopRun();
+            anim.OnDead();
             isReady = false;
         }
 

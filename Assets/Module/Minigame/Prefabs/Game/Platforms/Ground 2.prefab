@@ -197,6 +197,11 @@ MonoBehaviour:
     rotate: {x: -0, y: 0, z: 0}
     objectId: coin
     type: 1
+  - location: {x: 5.02, y: 0.6, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotate: {x: -0, y: 0, z: 0}
+    objectId: 
+    type: 2
   floor: {fileID: 2047600496014535256}
   objects: {fileID: 2047600494611052281}
 --- !u!1 &2047600495754533081

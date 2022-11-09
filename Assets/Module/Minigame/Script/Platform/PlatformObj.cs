@@ -43,7 +43,7 @@ namespace MiniGame {
                 Debug.Log("Genarateion");
                 foreach (var node in platform.Nodes) 
                 {
-                    var obj = GameStore.instance.objectData.Find(node.type, node.objectId);
+                    var obj = node.objectId.notnull()? GameStore.instance.objectData.Find(node.type, node.objectId) : GameStore.instance.objectData.FindRandom(node.type);
                     if (obj != null)
                     {
                        var root = obj.gameObject.Create(platform.objects);
@@ -68,7 +68,7 @@ namespace MiniGame {
                 if (item != null) 
                 {
                     Nodes.Add(new Node() {
-                        objectId= item.objectId,
+                        objectId= (item.type != CollectType.Booster)? item.objectId : null,
                         type = item.type,
                         location = item.transform.localPosition,
                         scale = item.transform.localScale,
@@ -82,6 +82,10 @@ namespace MiniGame {
         });
 #endif
 
+
+
+
+   
 
         public List<Node> Nodes = new List<Node>();
         [System.Serializable]
@@ -102,6 +106,13 @@ namespace MiniGame {
             GameObject m_gameobject;
             public GameObject Load ( )
             {
+                if (objectId.isnull()) 
+                {
+                    var collect = GameStore.instance.objectData.FindRandom(type);
+                    return collect != null ? collect.gameObject : null;
+                }
+
+
                 if (m_gameobject == null) 
                 {
                     var collect = GameStore.instance.objectData.Find(type, objectId);
@@ -125,6 +136,8 @@ namespace MiniGame {
             isReady = true;
             isEnter = false;
             this.manager = manager;
+
+
             Genarate();
         }
 
@@ -148,8 +161,22 @@ namespace MiniGame {
         void Genarate() 
         {
             m_pools.Clear();
+            objects.DesAllParent();
             foreach (var node in Nodes)
             {
+
+                if (node.type == CollectType.Booster) 
+                {
+                    if (manager.IsCanGenBooster())
+                    {
+
+                    }
+                    else 
+                    {
+                        continue;
+                    }
+                }
+
                 var obj = node.Load();
                 if (obj != null)
                 {

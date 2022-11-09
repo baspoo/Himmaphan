@@ -27,8 +27,8 @@ namespace MiniGame.Player
         [System.Serializable]
         class StateModify 
         {
-            public State jump;
             public State ground;
+            public State jump;
             public State slide;
 
             [System.Serializable]
@@ -37,13 +37,43 @@ namespace MiniGame.Player
                 public JumpState state;
                 public Vector2 colliderOffset;
                 public Vector2 colliderSize;
-                public void OnModifyCollider(BoxCollider2D collider) {
+                public void OnModifyCollider(CapsuleCollider2D collider) {
                     collider.offset = colliderOffset;
                     collider.size = colliderSize;
                 }
             }
         }
-      
+
+
+        #if UNITY_EDITOR
+        public RuntimeBtn SaveGround = new RuntimeBtn((r) => {
+            PlayerData player = r.Gameobject.GetComponent<PlayerData>();
+            player.move.saveload(player.move.stateModify.ground , player.handle.collider , (int) r.Double );
+        });
+        public RuntimeBtn SaveJump = new RuntimeBtn((r) => {
+            PlayerData player = r.Gameobject.GetComponent<PlayerData>();
+            player.move.saveload(player.move.stateModify.jump, player.handle.collider, (int)r.Double);
+        });
+        public RuntimeBtn SaveSlide= new RuntimeBtn((r) => {
+            PlayerData player = r.Gameobject.GetComponent<PlayerData>();
+            player.move.saveload(player.move.stateModify.slide, player.handle.collider, (int)r.Double);
+        });
+        void saveload(StateModify.State state , CapsuleCollider2D collider , int act)
+        {
+            if (act == 0)
+            {
+                state.colliderOffset = collider.offset;
+                state.colliderSize = collider.size;
+            }
+            else 
+            {
+                collider.offset = state.colliderOffset;
+                collider.size = state.colliderSize;
+            }
+        }
+        #endif
+
+
         public bool IsCanJump
         {
             get

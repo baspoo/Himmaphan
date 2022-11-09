@@ -11,7 +11,7 @@ namespace MiniGame.Player
 
 
         public Rigidbody2D rigi;
-        public BoxCollider2D collider;
+        public CapsuleCollider2D collider;
         public AudioSource andio;
 
         //PlayerData playerdata;
@@ -62,7 +62,7 @@ namespace MiniGame.Player
         public void Hit(GameObject hit)
         {
 
-            Debug.Log($"Player-Hit : {hit.name} - {hit.tag}");
+            //Debug.Log($"Player-Hit : {hit.name} - {hit.tag}");
             switch (hit.tag)
             {
                 case "Obstacle":
@@ -105,6 +105,7 @@ namespace MiniGame.Player
 
             var addscore = (int)(score * playerdata.buffbooster.active.X2ScoreValue);
             playerdata.stat.Score += addscore;
+            ConsolePage.instance?.UpdateScore();
         }
         #endregion
 
@@ -120,6 +121,9 @@ namespace MiniGame.Player
         {
             if (!playerdata.isReady || playerdata.stat.isDead) return;
 
+
+            Debug.Log($"AddBooster : {boosterRuntime.Data.BoosterType}");
+
             var boosterType = boosterRuntime.Data.BoosterType;
             var oldrunTime = playerdata.buffbooster.GetBooster(boosterType);
 
@@ -128,8 +132,7 @@ namespace MiniGame.Player
             {
                 if (oldrunTime.Coroutine != null)
                     StopCoroutine(oldrunTime.Coroutine);
-                oldrunTime.EventDone?.Invoke(playerdata);
-                playerdata.buffbooster.Remove(oldrunTime);
+                BuffFinish(oldrunTime);
             }
 
             //** newbuff
@@ -137,9 +140,11 @@ namespace MiniGame.Player
         }
         IEnumerator BuffRuntime(BoosterRuntime boosterRuntime)
         {
+            Debug.Log($"Start-Booster : {boosterRuntime.Data.BoosterType}");
             playerdata.buffbooster.Add(boosterRuntime);
+            if (boosterRuntime.Duration > 0.0f) ConsolePage.instance?.AddBuff(boosterRuntime);
             boosterRuntime.EventStart?.Invoke(playerdata);
-            while (boosterRuntime.Duration <= 0.0f)
+            while (boosterRuntime.Duration > 0.0f)
             {
                 yield return new WaitForEndOfFrame();
                 if (!playerdata.isReady || playerdata.stat.isDead) yield break;
@@ -147,6 +152,12 @@ namespace MiniGame.Player
                 boosterRuntime.EventUpdate?.Invoke(playerdata);
                 boosterRuntime.Duration -= Time.deltaTime;
             }
+            BuffFinish(boosterRuntime);
+            Debug.Log($"End-Booster : {boosterRuntime.Data.BoosterType}");
+        }
+        void BuffFinish(BoosterRuntime boosterRuntime) 
+        {
+            boosterRuntime.Duration = 0.0f;
             boosterRuntime.EventDone?.Invoke(playerdata);
             playerdata.buffbooster.Remove(boosterRuntime);
         }
@@ -168,21 +179,22 @@ namespace MiniGame.Player
 
             if (damage == -1)
             {
-                //** Dead
-                OnDead();
+                //** DeadZone
+                OnDead( );
             }
-            else 
+            else
             {
-                if (playerdata.buffbooster.active.IsImmortal)
+                if (playerdata.buffbooster.active.IsProtectHp)
                     return;
 
                 playerdata.stat.Hp -= damage;
                 if (playerdata.stat.Hp <= 0)
                 {
                     //** Dead
-                    OnDead();
+                    OnDead( );
                 }
             }
+            ConsolePage.instance?.UpdateHp( );
         }
         public void AddLifePoint(int hp)
         {
@@ -191,6 +203,7 @@ namespace MiniGame.Player
             playerdata.stat.Hp += hp;
             if (playerdata.stat.Hp > playerdata.defaultStat.MaxHp)
                 playerdata.stat.Hp = playerdata.defaultStat.MaxHp;
+            ConsolePage.instance?.UpdateHp();
         }
         #endregion
 
@@ -206,25 +219,12 @@ namespace MiniGame.Player
 
 
         #region Dead
-        public void OnDead()
+        public void OnDead( )
         {
             if (!playerdata.stat.isDead)
             {
                 playerdata.stat.isDead = true;
-                StartCoroutine(DoDead());
-            }
-        }
-        IEnumerator DoDead()
-        {
-            GameControl.instance.GameOver();
-            if (playerdata.move.IsFlying)
-            {
-                yield return new WaitForSeconds(5.0f);
-                playerdata.gameObject.SetActive(false);
-            }
-            else
-            {
-                playerdata.anim.OnDead();
+                GameControl.instance.GameOver();
             }
         }
         #endregion

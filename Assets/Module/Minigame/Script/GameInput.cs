@@ -70,7 +70,14 @@ namespace MiniGame
                 Player.PlayerData.player.handle.OnSlide();
             }
 
-
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!GameControl.instance.isPause) SettingPage.Open(true);
+            }
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                GameControl.instance?.Restart();
+            }
         }
 
         public void OnBtnJump() 

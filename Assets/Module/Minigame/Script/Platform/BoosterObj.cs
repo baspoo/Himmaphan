@@ -9,7 +9,7 @@ namespace MiniGame
         Immortal,
         X2Score,
         LifePoint,
-        Boom
+        Turbo
     }
     [System.Serializable]
     public class BoosterData
@@ -18,6 +18,7 @@ namespace MiniGame
         public float Duration;
         public double Value;
         public System.DateTime Time;
+        public Color Color;
     }
     public class BoosterRuntime
     {
@@ -90,7 +91,7 @@ namespace MiniGame
                     break;
                 case BoosterType.X2Score:
                     boosterRuntime.EventStart = (p) => {
-
+                        
                     };
                     boosterRuntime.EventDone = (p) => {
 
@@ -101,9 +102,14 @@ namespace MiniGame
                         p.handle.AddLifePoint((int)Data.Value);
                     };
                     break;
-                case BoosterType.Boom:
-                    boosterRuntime.EventUpdate = (p) => {
-
+                case BoosterType.Turbo:
+                    boosterRuntime.EventStart = (p) => {
+                        p.stat.Speed = (float)(p.defaultStat.BeginSpeed * Data.Value);
+                        GameControl.instance.background.ActiveRoadOfRainBow(true);
+                    };
+                    boosterRuntime.EventDone = (p) => {
+                        p.stat.Speed = p.defaultStat.BeginSpeed;
+                        GameControl.instance.background.ActiveRoadOfRainBow(false);
                     };
                     break;
                 default:

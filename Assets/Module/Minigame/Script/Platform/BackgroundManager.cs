@@ -9,10 +9,13 @@ namespace MiniGame
         public void Init()
         {
             isReady = false;
+            ActiveRoadOfRainBow(false);
+            gameObject.SetActive(false);
         }
         public void StartGame()
         {
             isReady = true;
+            gameObject.SetActive(true);
         }
         public void GameOver()
         {
@@ -27,6 +30,7 @@ namespace MiniGame
 
 
         bool isReady = false;
+        public Transform rainbow;
         public Layer[] layers;
         [System.Serializable]
         public class Layer 
@@ -87,6 +91,11 @@ namespace MiniGame
             }
         }
 
+
+        public void ActiveRoadOfRainBow(bool active) 
+        {
+            rainbow.SetActive(active);
+        }
 
 
 

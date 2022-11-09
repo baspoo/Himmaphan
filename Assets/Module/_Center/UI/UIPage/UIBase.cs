@@ -53,22 +53,31 @@ public class UIBase : MonoBehaviour
         }
 
         public bool DontDestoryOnClose;
-        [Header("On Open")]
-        public bool OpenMask;
-        public Sfx OpenSfx;
 
+
+        [Header("On Open")]
+        public ActionPage Open;
         [Header("On Close")]
-        public bool CloseMask;
-        public Sfx CloseSfx;
+        public ActionPage Close;
+
+        [System.Serializable]
+        public class ActionPage
+        {
+            public bool IsMask;
+            public bool IsAnimation;
+            public AnimationCurve Curve;
+            public float duration = 0.35f;
+        }
+
 
         public TaskService.Function EventOnClose = new TaskService.Function();
     }
 
 
 
-    public static Store.Pages Pages => Store.instance.page;
+    protected static Store.Pages Pages => Store.instance.page;
     bool IsActive = false;
-    public bool IsMute { get; private set; }
+    protected bool IsMute { get; private set; }
 
     static Dictionary<GameObject, GameObject> m_stock = new Dictionary<GameObject, GameObject>();
     public static T CreatePage<T>(GameObject page) 
@@ -99,10 +108,12 @@ public class UIBase : MonoBehaviour
         //UIBase
         var uibase = newpage.GetComponent<UIBase>();
         if(resue) uibase.ReuseHandle();
+        else uibase.HandleOpen();
+
         uibase.name = $"{page.name} [depth - { ((uibase.panel!=null)? uibase.panel.depth : 0) }]";
-        if (uibase.settingpage.OpenMask)
+        if (uibase.settingpage.Open.IsMask)
             uibase.root.OpenMask(true, uibase.transform);
-        uibase.HandleSound(uibase.settingpage.OpenSfx);
+
         if (!m_stock.ContainsKey(page) && uibase.settingpage.DontDestoryOnClose)
             m_stock.Add(page, newpage);
 
@@ -154,26 +165,45 @@ public class UIBase : MonoBehaviour
         if(panel!=null) panel.alpha = visible ? 1.0f : 0.0f;
     }
     public bool IsVisible => panel.alpha != 0.0f;
-
-
     public InterfaceRoot root => InterfaceRoot.instance;
-
-
     public TaskService.Function EventOnClose => settingpage.EventOnClose;
 
 
+
+    Coroutine sfxhandle;
+    void HandleOpen()
+    {
+        IsMute = true;
+        if (sfxhandle != null) StopCoroutine(sfxhandle);
+        sfxhandle = RefreshTime(30, (i) => { IsMute = false; });
+
+        if (settingpage.Open.IsAnimation)
+        {
+            if (tweenScale == null)
+                tweenScale = gameObject.AddComponent<TweenScale>();
+            tweenScale.from = Vector3.zero;
+            tweenScale.to = Vector3.one;
+            tweenScale.duration = settingpage.Open.duration;
+            tweenScale.animationCurve = settingpage.Open.Curve;
+            ReAwake.ReTween(tweenScale);
+        }
+    }
+
+
+
     Coroutine coroscale;
+    TweenScale tweenScale;
     void ReuseHandle() 
     {
-        if (coroscale != null) StopCoroutine(coroscale);
-        var tween = gameObject.GetComponent<iTween>();
-        if (tween != null) Destroy(tween);
+        if (coroscale != null) coroscale.StopCorotine();
+
         IEnumerator Do()
         {
             gameObject.SetActive(false);
             yield return new WaitForEndOfFrame( );
             gameObject.transform.ResetTransform();
             gameObject.SetActive(true);
+            HandleOpen();
         }
         Do().StartCorotine();
     }
@@ -182,8 +212,18 @@ public class UIBase : MonoBehaviour
         HandleClose();
         IEnumerator Do()
         {
-            iTween.ScaleTo(gameObject,Vector3.zero,0.35f);
-            yield return new WaitForSeconds(0.3f);
+            if (settingpage.Close.IsAnimation)
+            {
+                if (tweenScale == null)
+                    tweenScale = gameObject.AddComponent<TweenScale>();
+                tweenScale.from = gameObject.transform.localScale;
+                tweenScale.to = Vector3.zero;
+                tweenScale.duration = settingpage.Close.duration;
+                tweenScale.animationCurve = settingpage.Close.Curve;
+                ReAwake.ReTween(tweenScale);
+                yield return new WaitForSeconds(settingpage.Close.duration);
+            }
+
             if (settingpage.DontDestoryOnClose)
                 gameObject.SetActive(false);
             else
@@ -200,9 +240,9 @@ public class UIBase : MonoBehaviour
 
         UIBubble.OnClose(gameObject.name);
 
-        if (settingpage.CloseMask)
+        if (settingpage.Close.IsMask)
             root.OpenMask(false, transform);
-        HandleSound(settingpage.CloseSfx);
+        //HandleSound(settingpage.CloseSfx);
         EventOnClose?.callall();
     }
 
@@ -214,9 +254,9 @@ public class UIBase : MonoBehaviour
 
         gameObject.SetActive(!Hide);
 
-        if (!Hide && settingpage.OpenMask)
+        if (!Hide && settingpage.Open.IsMask)
             root.OpenMask(true, transform);
-        if (Hide && settingpage.CloseMask)
+        if (Hide && settingpage.Close.IsMask)
             root.OpenMask(false, transform);
     }
 
@@ -243,8 +283,8 @@ public class UIBase : MonoBehaviour
     }
 
 
-    public void RefreshTime(System.Action actionToRefresh) =>  IERefresh(1, (i) => { actionToRefresh?.Invoke(); }).StartCorotine();
-    public void RefreshTime(int time, System.Action<int> actionToRefresh) => StartCoroutine(IERefresh(time, actionToRefresh));
+    public Coroutine RefreshTime(System.Action actionToRefresh) =>  IERefresh(1, (i) => { actionToRefresh?.Invoke(); }).StartCorotine();
+    public Coroutine RefreshTime(int time, System.Action<int> actionToRefresh) => StartCoroutine(IERefresh(time, actionToRefresh));
     IEnumerator IERefresh(int time, System.Action<int> actionToRefresh) {
         for (int i = 0; i < time; i++) 
         {
@@ -283,16 +323,8 @@ public class UIBase : MonoBehaviour
         UIBubbles = new List<UIBubble>();
     }
 
-    void HandleSound(UISettingPage.Sfx sfx)
-    {
-        IsMute = true;
-        RefreshTime(()=> { IsMute = false; });
-        switch (sfx)
-        {
-            //case UISettingPage.Sfx.movepage: Playlist.let.sfx_movepage.Play(); break;
-            //case UISettingPage.Sfx.page: Playlist.let.sfx_pages.Play(); break;
-        }
-    }
+
+   
 
 
 

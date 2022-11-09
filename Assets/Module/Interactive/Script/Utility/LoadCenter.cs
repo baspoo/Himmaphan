@@ -79,6 +79,12 @@ public class LoadCenter : MonoBehaviour
     public void GetPlistData(System.Action<bool> callback) => StartCoroutine(DoPlistData(callback));
     IEnumerator DoPlistData(System.Action<bool> callback)
     {
+        if (Data.PlistData.plist != null)
+        {
+            callback?.Invoke(true);
+            yield break;
+        }
+
         var url = $"{Application.streamingAssetsPath}/plist.json";
         WWW www = new WWW(url);
         yield return www;

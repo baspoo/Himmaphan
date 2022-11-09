@@ -288,8 +288,13 @@ MonoBehaviour:
     type: 0
   - location: {x: 24.5, y: 2.57, z: 1}
     scale: {x: 0.24985813, y: 0.24985813, z: 0.24985813}
-    rotate: {x: -0, y: 0, z: 319.46432}
+    rotate: {x: -0, y: 0, z: 319.4643}
     objectId: obs1
     type: 0
+  - location: {x: 14.92, y: 0.6, z: 0}
+    scale: {x: 1, y: 1, z: 1}
+    rotate: {x: -0, y: 0, z: 0}
+    objectId: 
+    type: 2
   floor: {fileID: 2764599917318348493}
   objects: {fileID: 2764599917627114092}
