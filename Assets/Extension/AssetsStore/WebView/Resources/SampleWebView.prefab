@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6651552726120241230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0015625, y: 0.0015625, z: 0.0015625}
+  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
   m_Children:
   - {fileID: 6651552727118566913}
   - {fileID: 6651552727397166045}
@@ -228,7 +228,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 9e59a40fb6ec5294c9124101f89cebcd, type: 3}
+  mTexture: {fileID: 2800000, guid: 29bd2bf6e1893144bbb7e8ba725fda16, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 20, y: 20, z: 20, w: 20}
   mFixedAspect: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: b5aa7a6e2339ff641a015a6130f721da, type: 3}
+  mTexture: {fileID: 2800000, guid: 0f43fd4178a068441a326c133c57e75e, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 20, y: 20, z: 20, w: 20}
   mFixedAspect: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: f77683cc2a21681439bc33d22d72199d, type: 3}
+  mTexture: {fileID: 2800000, guid: 9e43cc11aaa79b84aa91af04b1314d95, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 20, y: 20, z: 20, w: 20}
   mFixedAspect: 0
@@ -627,7 +627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6651552727005721678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 360, y: 640, z: 0}
+  m_LocalPosition: {x: 720, y: 358, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6651552726786794550}
@@ -863,7 +863,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: f77683cc2a21681439bc33d22d72199d, type: 3}
+  mTexture: {fileID: 2800000, guid: 9e43cc11aaa79b84aa91af04b1314d95, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 20, y: 20, z: 20, w: 20}
   mFixedAspect: 0
@@ -935,7 +935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6651552727397166046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -360, y: 640, z: 0}
+  m_LocalPosition: {x: -720, y: 358, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6651552726836903481}
@@ -1052,7 +1052,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 9e59a40fb6ec5294c9124101f89cebcd, type: 3}
+  mTexture: {fileID: 2800000, guid: 29bd2bf6e1893144bbb7e8ba725fda16, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 20, y: 20, z: 20, w: 20}
   mFixedAspect: 0
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: f77683cc2a21681439bc33d22d72199d, type: 3}
+  mTexture: {fileID: 2800000, guid: 9e43cc11aaa79b84aa91af04b1314d95, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 20, y: 20, z: 20, w: 20}
   mFixedAspect: 0
