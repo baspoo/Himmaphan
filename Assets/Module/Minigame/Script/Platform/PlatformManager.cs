@@ -9,7 +9,9 @@ namespace MiniGame
        
         public void Init()
         {
-
+            startFloor = Data.PlistData.plist.minigame.config.startFloor;
+            mainFloor = Data.PlistData.plist.minigame.config.mainFloor;
+            freeverFloor = Data.PlistData.plist.minigame.config.freeverFloor;
         }
         public void PreParingScene()
         {
@@ -53,23 +55,46 @@ namespace MiniGame
 
         public int startFloor;
         public int mainFloor;
+        public int freeverFloor;
         public int maxPlatformRound;
         public float floorLenght = 30f;
         public float farToTrash = 50f;
         public Transform root;
+
+
         int countPlatformGenarate;
+        int countPlatformComplete;
         bool isContinue = false;
+        bool isFirst = true;
         GameStore.ScenePlatform m_scenePlatform;
         void DoPreParingScene(GameStore.ScenePlatform scene)
         {
             isContinue = true;
             countPlatformGenarate = 0;
+            countPlatformComplete = 0;
+
+            //** Random Max Of Round
+            maxPlatformRound = 
+                Random.RandomRange(Data.PlistData.plist.minigame.config.maxOfRound[0], Data.PlistData.plist.minigame.config.maxOfRound[1]);
+
+            //** Snap Player to Origin
+            Player.PlayerData.player.transform.position = GameControl.instance.background.origin.transform.position;
 
             m_platformObjs.ForEach(x=>x.Clear());
             m_platformObjs = new List<PlatformObj>();
             m_scenePlatform = scene;
 
-            startFloor.Loop(()=> { Genarate(m_scenePlatform.platformObjs[0]); });
+
+            if (isFirst)
+            {
+                isFirst = false;
+                startFloor.Loop(() => { Genarate(m_scenePlatform.platformObjs[0]); });
+            }
+            else 
+            {
+                Genarate(m_scenePlatform.platformObjs[0]);
+                freeverFloor.Loop(() => { Genarate(m_scenePlatform.platformFreeverObjs[m_scenePlatform.platformFreeverObjs.Count.Random()]); });
+            }
             mainFloor.Loop(() => { Genarate( ); });
         }
 
@@ -94,10 +119,12 @@ namespace MiniGame
         public void Trash(PlatformObj platform)
         {
             platform.Clear();
+            countPlatformComplete++;
+
 
             if (isContinue) 
             {
-                if (countPlatformGenarate >= maxPlatformRound)
+                if (countPlatformComplete >= maxPlatformRound)
                 {
                     ReScenePlatform();
                 }
@@ -116,7 +143,24 @@ namespace MiniGame
         }
         IEnumerator DoReScenePlatform() 
         {
+
+           
+            var turbo = GameStore.instance.objectData.boosters.Find(x=>x.Data.BoosterType== BoosterType.Turbo);
+            Player.PlayerData.player.handle.AddBooster(turbo.HandleAction());
+
+
+            InterfaceRoot.instance.OnDisplayTopic("FREEVER!!");
+            ConsolePage.instance?.OnVisible(false);
+            yield return new WaitForSeconds(2.5f);
             yield return new WaitForEndOfFrame();
+
+            InterfaceRoot.instance.OpenFade();
+            yield return new WaitForEndOfFrame();
+            DoPreParingScene(GameStore.instance.scenePlatforms[0]);
+            yield return new WaitForEndOfFrame();
+
+
+            ConsolePage.instance?.OnVisible(true);
         }
 
 

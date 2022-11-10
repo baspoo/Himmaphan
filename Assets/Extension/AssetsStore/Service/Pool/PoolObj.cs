@@ -46,6 +46,7 @@ public class PoolObj : MonoBehaviour {
 	public int refID;
 	public int ID;
 	public bool isActive;
+	public bool isNew { get; private set; }
 	public Service.Callback.callback onActive;
 	public Service.Callback.callback onDeactive;
 	PoolGroup m_group;
@@ -53,6 +54,7 @@ public class PoolObj : MonoBehaviour {
 	public List<PoolObj> PoolObjs => m_group.PoolObjs;
 	public void init(  PoolGroup group )
 	{
+		isNew = true;
 		ID = this.GetInstanceID();
 		refID = group.pObj.GetInstanceID ();
 		m_group = group;
@@ -70,7 +72,9 @@ public class PoolObj : MonoBehaviour {
 		if (onActive != null)
 			onActive ();
 	}
-	public void Deactive(){
+	public void Deactive()
+	{
+		isNew = false;
 		isActive = false;
 		gameObject.SetActive (isActive);
 

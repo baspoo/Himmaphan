@@ -30,6 +30,7 @@ namespace MiniGame
 
 
         bool isReady = false;
+        public Transform origin;
         public Transform rainbow;
         public Layer[] layers;
         [System.Serializable]

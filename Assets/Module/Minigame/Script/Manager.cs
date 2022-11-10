@@ -17,10 +17,21 @@ namespace MiniGame
         }
         void Complete() 
         {
-            init = true;
-            //** test startgame.
+            if (!init) 
+            {
+                //** first-time.
+                init = true;
+                GameControl.instance.FirstTime();
+            }
+          
+            //** startgame.
             GameControl.instance.StartGame();
         }
-        
+
+
+
+
+
+
     }
 }

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea23455c95c38304886e3c8ec2ed5bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectId: booster2
+  objectId: turbo
   type: 2
   spriteRender: {fileID: 9021968619201278673}
   collider: {fileID: 759032591884758777}

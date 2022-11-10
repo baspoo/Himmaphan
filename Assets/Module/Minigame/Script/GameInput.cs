@@ -30,12 +30,21 @@ namespace MiniGame
         bool autoSlide = false;
         void Update()
         {
-            if (!isInput || Player.PlayerData.player == null)
+            if (!isInput || Player.PlayerData.player == null || ConsolePage.instance == null || !ConsolePage.instance.IsVisible)
                 return;
 
 
 
 #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                Player.PlayerData.player.handle.AddLifePoint(20);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                Player.PlayerData.player.handle.AddDamage(20);
+            }
+
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 Player.PlayerData.player.handle.AddBooster(GameStore.instance.objectData.boosters[0].HandleAction());

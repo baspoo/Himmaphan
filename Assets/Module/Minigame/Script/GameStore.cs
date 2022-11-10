@@ -44,7 +44,7 @@ namespace MiniGame
                 }
                 return collectBase;
             }
-            public CollectBase FindRandom(CollectType type )
+            public CollectBase FindRandom( CollectType type )
             {
                 CollectBase collectBase = null;
                 switch (type)
@@ -71,6 +71,7 @@ namespace MiniGame
             public string platformName;
             public List<BackgroundObj> backgrounds;
             public List<PlatformObj> platformObjs;
+            public List<PlatformObj> platformFreeverObjs;
         }
         public Page page;
         [System.Serializable]

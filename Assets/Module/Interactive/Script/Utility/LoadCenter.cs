@@ -76,11 +76,13 @@ public class LoadCenter : MonoBehaviour
 
 
     #region Download-Plist
+    [SerializeField] Data.PlistData plist;
     public void GetPlistData(System.Action<bool> callback) => StartCoroutine(DoPlistData(callback));
     IEnumerator DoPlistData(System.Action<bool> callback)
     {
         if (Data.PlistData.plist != null)
         {
+            this.plist = Data.PlistData.plist;
             callback?.Invoke(true);
             yield break;
         }
@@ -101,6 +103,7 @@ public class LoadCenter : MonoBehaviour
                 yield return StartCoroutine(DoVerifyVersion(plist.version, (complete) => { verify = complete; }));
                 while (!verify) yield return new WaitForEndOfFrame();
                 Data.PlistData.plist = plist;
+                this.plist = plist;
                 callback?.Invoke(true);
             }
             else

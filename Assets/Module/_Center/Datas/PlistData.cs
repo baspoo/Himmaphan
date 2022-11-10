@@ -15,29 +15,56 @@ namespace Data
 
 
         public string version;
-        public ApiData apiData;
+        public Dictionary<string, string> languages = new Dictionary<string, string>();
+
+
+
+        public Interactive interactive;
         [System.Serializable]
-        public class ApiData
+        public class Interactive
         {
-            public string api_getEventList = "http://smartobm-vsr-uat.thaitrade.com/api/public/events";
-            public string api_getEventDetail = "http://smartobm-vsr-uat.thaitrade.com/api/public/events/@";
-            public string api_getProductList = "http://smartobm-vsr-uat.thaitrade.com/api/public/sellers/@/products";
+
         }
 
-        public ConfigData config;
+
+        public Minigame minigame;
         [System.Serializable]
-        public class ConfigData
+        public class Minigame
         {
-            public float playerMoveSpeed;
-            public float cameraFieldOfView;
-            public float pitchSensitivity;
-            public float yawSensitivity;
-            public float guiScaleFactor;
-            public int guiWidth;
-            public int guiHeight;
-            public bool protectImageFail;
+            public Network network;
+            [System.Serializable]
+            public class Network
+            {
+                public string firebase;
+            }
+
+            public Config config;
+            [System.Serializable]
+            public class Config
+            {
+                public int startFloor;
+                public int mainFloor;
+                public int freeverFloor;
+                public int[] maxOfRound;
+            }
+
+
+
+            public List<Data> coins;
+            public List<Data> boosters;
+            [System.Serializable]
+            public class Data 
+            {
+                public string objectId;
+                public float duration;
+                public double value;
+            }
+
         }
-        public Dictionary<string, string> languages = new Dictionary<string, string>();
+
+
+
+
     }
 
 }

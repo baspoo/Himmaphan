@@ -45,7 +45,32 @@ namespace MiniGame
 
 
 
+        public void FirstTime() 
+        {
+            //** Merge-Plist
+            var minigame = Data.PlistData.plist.minigame;
 
+            //** Merge-Coin
+            foreach (var coin in minigame.coins)
+            {
+                var find = GameStore.instance.objectData.coins.Find( x=>x.objectId == coin.objectId );
+                if (find != null) 
+                {
+                    find.Score = (int)coin.value;
+                }
+            }
+
+            //** Merge-Booster
+            foreach (var booster in minigame.boosters)
+            {
+                var find = GameStore.instance.objectData.boosters.Find(x => x.objectId == booster.objectId);
+                if (find != null)
+                {
+                    find.Data.Duration = booster.duration;
+                    find.Data.Value = (int)booster.value;
+                }
+            }
+        }
 
 
 

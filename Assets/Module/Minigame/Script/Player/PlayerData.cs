@@ -136,7 +136,6 @@ namespace MiniGame.Player
         public PlayerMove move;
         public PlayerHandle handle;
         public PlayerAnimation anim;
-        public GameBalancing balancing { get; private set; }
         public bool isReady { get; private set; }
 
 
@@ -150,9 +149,6 @@ namespace MiniGame.Player
             move.Init(this);
             handle.Init(this);
             anim.Init(this);
-
-            balancing = new GameBalancing();
-            balancing.Init(this);
             gameObject.SetActive(false);
         }
         public void StartGame()
