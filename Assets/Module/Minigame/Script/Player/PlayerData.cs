@@ -25,6 +25,7 @@ namespace MiniGame.Player
         {
             public int Hp;
             public int Score;
+            public int TopScore;
             public float Speed;
             public bool isDead;
             public void Init(PlayerData player)

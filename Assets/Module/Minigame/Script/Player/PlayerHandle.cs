@@ -224,7 +224,7 @@ namespace MiniGame.Player
             if (!playerdata.stat.isDead)
             {
                 playerdata.stat.isDead = true;
-                GameControl.instance.GameOver();
+                GameControl.instance.GameOver( );
             }
         }
         #endregion

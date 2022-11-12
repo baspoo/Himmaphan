@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace FirebaseServiceTest 
+namespace FirebaseSimple.Test
 {
 
     public class TestScript : MonoBehaviour
@@ -38,6 +38,7 @@ namespace FirebaseServiceTest
                     Debug.Log("New User");
                     user = new FirebaseService.User();
                     user.name = username;
+                    user.nickname = "baspoo";
                     user.userId = userId;
                     firebaseService.AddUser(user);
                 }

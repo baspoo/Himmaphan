@@ -23,8 +23,12 @@ namespace MiniGame
         public class SettingZone
         {
             public Transform root;
-
+            public UIBtnToggle toggleSFX;
+            public UIBtnToggle toggleBGM;
         }
+
+
+
         [SerializeField] ResumeZone resumeZone;
         [System.Serializable]
         public class ResumeZone
@@ -32,29 +36,43 @@ namespace MiniGame
             public Transform root;
             public UILabel ui_uiCountDown;
         }
+
+
+
+
+
+
+
+
+
+
         bool pause;
-
-        List<Transform> pages => new List<Transform>() { settingZone.root , resumeZone.root };
-
-        public void Init(bool pause = false) 
+        List<Transform> pages => new List<Transform>() { settingZone.root, resumeZone.root };
+        public void Init(bool pause = false)
         {
             this.pause = pause;
             if (pause)
                 GameControl.instance?.OnPause();
 
+            settingZone.toggleSFX.IsValue = Sound.IsSfx;
+            settingZone.toggleBGM.IsValue = Sound.IsBgm;
             pages.Open(settingZone.root);
         }
-        public void ClosePage() 
+        public void OnSfx()
         {
-            StartCoroutine(DoResume());
+            Sound.IsSfx = settingZone.toggleSFX.IsValue;
         }
-        IEnumerator DoResume() 
+        public void OnBgm()
+        {
+            Sound.IsBgm = settingZone.toggleBGM.IsValue;
+        }
+        IEnumerator DoResume()
         {
             if (!pause)
             {
                 OnClose();
             }
-            else 
+            else
             {
                 pages.Open(resumeZone.root);
                 int countdown = 3;
@@ -68,6 +86,11 @@ namespace MiniGame
                 OnClose();
             }
         }
+        public void ClosePage()
+        {
+            StartCoroutine(DoResume());
+        }
+
 
 
     }

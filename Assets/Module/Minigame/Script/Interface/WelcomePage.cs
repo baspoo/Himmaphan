@@ -26,6 +26,10 @@ namespace MiniGame
         {
 
         }
+        public void OnLeaderBoard()
+        {
+            LeaderBoardPage.Open();
+        }
         public void OnStartGame()
         {
             GameControl.instance?.LetGo();

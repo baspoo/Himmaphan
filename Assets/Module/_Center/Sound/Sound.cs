@@ -51,6 +51,43 @@ public class Sound : MonoBehaviour {
 	{
 		def_bgmvolume = Bgm.volume;
 		def_sxfvolume = Bgm.volume;
+
+		is_sfx_mute = !IsSfx;
+		is_bgm_mute = !IsBgm;
+	}
+
+
+
+
+
+
+	public static bool IsSfx 
+	{
+		get 
+		{
+			return PlayerPrefs.GetInt("sound.sfx") == 0;
+		}
+		set 
+		{
+			is_sfx_mute = !value;
+			PlayerPrefs.SetInt("sound.sfx", value ? 0 : 1);
+		}
+	}
+	public static bool IsBgm
+	{
+		get
+		{
+			return PlayerPrefs.GetInt("sound.bgm") == 0;
+		}
+		set
+		{
+			is_bgm_mute = !value;
+			if (value)
+				sound?.ResumeBGM();
+			else
+				sound?.StopBGM();
+			PlayerPrefs.SetInt("sound.bgm", value ? 0 : 1);
+		}
 	}
 
 
@@ -65,16 +102,8 @@ public class Sound : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
-	
-	public static bool is_bgm_mute;
-	public static bool is_sfx_mute;
+	public static bool is_bgm_mute { get; private set; }
+	public static bool is_sfx_mute { get; private set; }
 	public AudioSource Sfx;
 	public AudioSource Bgm;
 
@@ -90,26 +119,30 @@ public class Sound : MonoBehaviour {
 	public void PlayBGM( AudioClip clip )
 	{
 		Bgm.clip = clip;
-		if (!is_bgm_mute)
+		if (!pause)
 		{
 			Bgm.Stop();
-			Bgm.Play();
+			if(!is_bgm_mute) 
+				Bgm.Play();
 		}
 	}
+
+	bool pause;
 	public void ResumeBGM()
 	{
 		if (!Bgm.isPlaying)
 		{
 			Bgm.Stop();
-			Bgm.Play();
+			if (!is_bgm_mute) 
+				Bgm.Play();
 		}
-		is_bgm_mute = false;
+		pause = false;
 		Bgm.mute = false;
 	}
 	public void StopBGM()
 	{
 		Bgm.Stop();
-		is_bgm_mute = true;
+		pause = true;
 		Bgm.mute = true;
 	}
 

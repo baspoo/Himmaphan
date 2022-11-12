@@ -78,9 +78,12 @@ namespace MiniGame
         public class Page
         {
             public GameObject prefab_welcomePage;
+            public GameObject prefab_registerPage;
             public GameObject prefab_consolePage;
             public GameObject prefab_settingPage;
             public GameObject prefab_gameoverPage;
+            public GameObject prefab_leaderboardPage;
+            public GameObject prefab_profilePage;
         }
 
 

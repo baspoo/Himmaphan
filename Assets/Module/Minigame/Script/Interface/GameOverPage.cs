@@ -23,7 +23,9 @@ namespace MiniGame
 
         public void Init( ) 
         {
-
+            ui_lbScore.text = Player.PlayerData.player.stat.Score.ToString("#,##0");
+            ui_lbHighScore.text = Player.PlayerData.player.stat.TopScore.ToString("#,##0");
+            tNewHigh.SetActive(Player.PlayerData.player.stat.Score > Player.PlayerData.player.stat.TopScore);
         }
         public void ClosePage() 
         {

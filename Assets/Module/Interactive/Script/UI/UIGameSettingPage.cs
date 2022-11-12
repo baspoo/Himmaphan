@@ -204,17 +204,11 @@ public class UIGameSettingPage : UIBase
         }
         if (Data == "sfx")
         {
-            Sound.is_sfx_mute = !IsOpen;
+            Sound.IsSfx = IsOpen;
         }
         if (Data == "bgm")
         {
-
-            //Debug.Log($"bgm {IsOpen}");
-            if (IsOpen)
-                Sound.sound.ResumeBGM();
-            else
-                Sound.sound.StopBGM();
-           
+            Sound.IsBgm = IsOpen;
         }
         if (Data == "graphic")
         {

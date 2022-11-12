@@ -66,7 +66,7 @@ public class UIBase : MonoBehaviour
             public bool IsMask;
             public bool IsAnimation;
             public AnimationCurve Curve;
-            public float duration = 0.35f;
+            public float duration = 0.15f;
         }
 
 

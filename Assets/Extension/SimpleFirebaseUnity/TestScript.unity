@@ -194,6 +194,8 @@ MonoBehaviour:
     played: 0
     topScore: 0
     lastScore: 0
+  chats: []
+  scores: []
   GetUser:
     Prams: 0
     BtnName: Run
@@ -202,6 +204,27 @@ MonoBehaviour:
     Transform: {fileID: 0}
     MonoBehaviour: {fileID: 0}
   UpdateUser:
+    Prams: 0
+    BtnName: Run
+    String: 
+    Double: 0
+    Transform: {fileID: 0}
+    MonoBehaviour: {fileID: 0}
+  GetRuntime:
+    Prams: 0
+    BtnName: Run
+    String: 
+    Double: 0
+    Transform: {fileID: 0}
+    MonoBehaviour: {fileID: 0}
+  PushChat:
+    Prams: 0
+    BtnName: Run
+    String: 
+    Double: 0
+    Transform: {fileID: 0}
+    MonoBehaviour: {fileID: 0}
+  PushScore:
     Prams: 0
     BtnName: Run
     String: 
