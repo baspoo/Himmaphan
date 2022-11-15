@@ -66,8 +66,8 @@ public class URLParameters : MonoBehaviour
                 m_Instance = (URLParameters)FindObjectOfType(typeof(URLParameters));
                 if (m_Instance == null)
                     m_Instance = (new GameObject("URLParameters")).AddComponent<URLParameters>();
-                //m_Instance.gameObject.name = "URLParameters";
-                //DontDestroyOnLoad(m_Instance.gameObject);
+                m_Instance.gameObject.name = "URLParameters";
+                DontDestroyOnLoad(m_Instance.gameObject);
             }
             return m_Instance;
         }

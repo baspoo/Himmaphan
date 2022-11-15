@@ -11,17 +11,25 @@ namespace Center
         public static Store instance {
             get 
             {
-                if (m_instance == null)
-                    m_instance = ((GameObject)Resources.Load("CenterStore")).GetComponent<Store>();
                 return m_instance;
+            }
+        }
+        public static Store load
+        {
+            get
+            {
+                return ((GameObject)Resources.Load("CenterStore")).GetComponent<Store>(); ;
             }
         }
         public static Store Create()
         {
-            m_instance =((GameObject)Instantiate(instance.gameObject)).GetComponent<Store>();
-            m_instance.Init();
-            m_instance.name = "CenterStore";
-            DontDestroyOnLoad(m_instance.gameObject);
+            if (m_instance == null)
+            {
+                m_instance = ((GameObject)Instantiate(load.gameObject)).GetComponent<Store>();
+                m_instance.Init();
+                m_instance.name = "CenterStore";
+                DontDestroyOnLoad(m_instance.gameObject);
+            }
             return m_instance;
         }
         public void Init()
