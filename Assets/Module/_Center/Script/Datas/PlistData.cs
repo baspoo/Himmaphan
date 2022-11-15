@@ -19,7 +19,7 @@ namespace Data
 
 
 
-        public Interactive interactive;
+        public Interactive interactive = new Interactive();
         [System.Serializable]
         public class Interactive
         {

@@ -28,8 +28,8 @@ public class UIBase : MonoBehaviour
             }
 
             //RootUIBubble
-            if (m_base.settingpage.RootUIBubble == null)
-                m_base.settingpage.RootUIBubble = m_base.transform;
+            //if (m_base.settingpage.RootUIBubble == null)
+                //m_base.settingpage.RootUIBubble = m_base.transform;
 
             m_base.FindPanel.BtnName = $"Find [{m_base.settingpage.UIPanels.Count}]";
         }
@@ -40,7 +40,7 @@ public class UIBase : MonoBehaviour
     [System.Serializable]
     public class UISettingPage 
     {
-        public Transform RootUIBubble;
+        //public Transform RootUIBubble;
         public PageLayer pageLayer;
         public List<UIPanel> UIPanels = new List<UIPanel>();
         public enum PageLayer
@@ -238,7 +238,7 @@ public class UIBase : MonoBehaviour
 
         if (!IsActive) return;
 
-        UIBubble.OnClose(gameObject.name);
+        //UIBubble.OnClose(gameObject.name);
 
         if (settingpage.Close.IsMask)
             root.OpenMask(false, transform);
@@ -301,28 +301,7 @@ public class UIBase : MonoBehaviour
     }
 
 
-    List<UIBubble> UIBubbles = new List<UIBubble>();
-    public UIBubble AddUIBubble(Texture Icon , Transform target3D , System.Action action ) 
-    {
-        var Bubble =  UIBubble.Open( Icon , target3D , settingpage.RootUIBubble != null ? settingpage.RootUIBubble : transform, action , gameObject.name );
-        UIBubbles.Add(Bubble);
-        return Bubble;
-    }
-
-
-    public UIBubble AddUIBubble(Texture Icon, Transform target3D, System.Action action, string name)
-    {
-        var Bubble = UIBubble.Open(Icon, target3D, transform, action, name);
-        UIBubbles.Add(Bubble);
-        return Bubble;
-    }
-
-    public void DesAllUIBubble( )
-    {
-        UIBubble.OnClose(UIBubbles);
-        UIBubbles = new List<UIBubble>();
-    }
-
+    
 
    
 

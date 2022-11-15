@@ -30,10 +30,10 @@ public class UIHover : MonoBehaviour
     {
         et = gameObject.AddComponent<UIEventTrigger>();
         et.onHoverOver.Add(new EventDelegate(()=> {
-            m_hover = false;
+            m_hover = true;
         }));
         et.onHoverOut.Add(new EventDelegate(() => {
-            m_hover = true;
+            m_hover = false;
         }));
     }
 

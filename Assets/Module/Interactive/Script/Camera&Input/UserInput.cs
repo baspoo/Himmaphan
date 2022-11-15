@@ -45,8 +45,6 @@ namespace Interactive.CameraControl
             allowHoldKey = deviceType == DeviceType.Web;
             if (deviceType == DeviceType.Mobile)
                 moveKey = KeyCode.Mouse0;
-            else
-                moveKey = KeyCode.Mouse1;
         }
         public void Update()
         {

@@ -80,8 +80,10 @@ namespace Interactive.CameraControl
             CameraEngine.instance.rootEffect.SetActive(!_zoom.isIgnoreEffect);
             if (reset) OnReset(true);
         }
+        bool init = false;
         public void Init()
         {
+            init = true;
             inputDevice = input.deviceType == DeviceType.Web ? Data.PlistData.plist.interactive.input.web : Data.PlistData.plist.interactive.input.mobile;
             zoom = zoomStart;
             _runzoom = zoom;
@@ -130,6 +132,9 @@ namespace Interactive.CameraControl
 
         void Update()
         {
+            if (!init)
+                return;
+
             if (CameraEngine.IsStopCameraEngine)
                 return;
 
@@ -173,7 +178,7 @@ namespace Interactive.CameraControl
                 return;
 
             float f = Input.mouseScrollDelta.y;
-            if (Data.PlistData.plist != null && Data.PlistData.plist.interactive.input != null)
+            if (Data.PlistData.plist != null)
             {
                 f *= inputDevice.zoomSensitivity;
             }
@@ -185,7 +190,7 @@ namespace Interactive.CameraControl
             if (m_IsIgnoreZoom)
                 return;
 
-            if (Data.PlistData.plist != null && Data.PlistData.plist.interactive.input != null)
+            if (Data.PlistData.plist != null)
             {
                 f *= inputDevice.zoomSensitivity;
             }

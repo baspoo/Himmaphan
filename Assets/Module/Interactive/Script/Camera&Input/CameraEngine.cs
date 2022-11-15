@@ -49,10 +49,7 @@ namespace Interactive.CameraControl
 		//public Minimap minimap;
 		public float smoothspeed;
 
-		private void Awake()
-		{
-			Init();
-		}
+
 		public void Init()
 		{
 			m_instance = this;

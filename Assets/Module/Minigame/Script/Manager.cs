@@ -9,7 +9,7 @@ namespace MiniGame
         public static bool init = false;
         IEnumerator Start()
         {
-            yield return StartCoroutine(ManagerCenter.Init());
+            yield return StartCoroutine(Center.ManagerCenter.Init());
             yield return new WaitForEndOfFrame();
             yield return GameControl.instance.Init();
 

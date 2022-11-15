@@ -45,12 +45,12 @@ public class HtmlCallback : MonoBehaviour
 
     public static void OnFullscreen( )
     {
-        #if !UNITY_EDITOR && UNITY_WEBGL
+#if !UNITY_EDITOR && UNITY_WEBGL
                 OnHtmlMessage(1, "fullscreen");
-        #else
-                UIPopupPage.Open(
-                    LoadCenter.instance.Language("notif_header"),
-                    LoadCenter.instance.Language("error_message_cantfullscreen") ,
+#else
+        Center.UIPopupPage.Open(
+                    Center.LoadCenter.instance.Language("notif_header"),
+                    Center.LoadCenter.instance.Language("error_message_cantfullscreen") ,
                     () => { });
         #endif
     }
