@@ -4,7 +4,7 @@
 #endif
 using UnityEngine;
 
-namespace CW.Common
+namespace DragPitch.Common
 {
     /// <summary>This class wraps <b>UnityEngine.Input</b> and <b>UnityEngine.InputSystem</b> so they can both be used from the same interface.</summary>
     public static class CwInput

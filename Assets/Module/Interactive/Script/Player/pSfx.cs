@@ -1,35 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class pSfx : MonoBehaviour
+
+namespace Interactive.Player
 {
-    public AudioClip audio;
-    public AudioSource audioSource;
-    public float pitchRandom;
-    public float time;
-    public float timeMax;
-
-    bool ready = false;
-    [SerializeField] Movement movement;
-
-
-    private void Update()
+    public class pSfx : MonoBehaviour
     {
-        if (movement.currentCharacterState != Movement.CharacterState.Moving)
-            return;
+        public AudioClip audio;
+        public AudioSource audioSource;
+        public float pitchRandom;
+        public float time;
+        public float timeMax;
 
-        if (time < timeMax)
-            time += Time.deltaTime;
-        else
+        bool ready = false;
+        PlayerClient client;
+        public void Init(PlayerClient client)
         {
-            time = 0.0f;
-            if (!Sound.is_sfx_mute)
+            this.client = client;
+            ready = true;
+            enabled = true;
+            audioSource.enabled = true;
+        }
+        public void Stop( )
+        {
+            ready = false;
+        }
+
+
+        private void Update()
+        {
+            if (!ready || client == null)
+                return;
+
+            if (client.pMovement.currentCharacterState != pMovement.CharacterState.Moving)
+                return;
+
+            if (time < timeMax)
+                time += Time.deltaTime;
+            else 
             {
+                time = 0.0f;
                 audioSource.PlayOneShot(audio);
                 audioSource.pitch = 1 + Random.RandomRange(-pitchRandom, pitchRandom);
             }
         }
+
+
     }
-
-
 }

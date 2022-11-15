@@ -58,7 +58,7 @@ public class UIAdmin : UIBase
             name = "setting",
             icon = null,
             exe = (val) => {
-                UIGameSettingPage.Open();
+                //UIGameSettingPage.Open();
                 OnClose();
             }
         });
@@ -146,7 +146,7 @@ public class UIAdmin : UIBase
         if (instance) instance.OnClose();
         if (!instance)
         {
-            instance = CreatePage<UIAdmin>(Pages.prefab_admin);
+            instance = CreatePage<UIAdmin>(Utility.Store.instance.page.prefab_admin);
             instance.Init();
         }
         return instance;

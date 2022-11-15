@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-namespace CW.Common
+namespace DragPitch.Common
 {
 	/// <summary>This component combines finger and mouse and keyboard inputs into a single interface.</summary>
 	[HelpURL(CwShared.HelpUrlPrefix + "CwInputManager")]

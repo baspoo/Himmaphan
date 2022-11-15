@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace CW.Common
+namespace DragPitch.Common
 {
 	/// <summary>This is the base class for all inspectors.</summary>
 	public abstract class CwEditor : UnityEditor.Editor

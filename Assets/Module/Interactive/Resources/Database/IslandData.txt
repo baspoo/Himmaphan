@@ -1,7 +1,0 @@
-Enable	Id	Name	LevelRequest	Price	Currency	Config
-TRUE	land_001	Grass Island	0	100	Coin	
-TRUE	land_002	Sand Island	0	100	Coin	
-TRUE	land_003	Autumn Island	0	100	Coin	
-TRUE	land_004	Rock Island	0	100	Coin	
-TRUE	land_005	Snow Island	0	100	Coin	
-TRUE	land_006	Iced Island	0	100	Coin	

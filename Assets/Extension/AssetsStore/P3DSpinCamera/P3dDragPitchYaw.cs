@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using CW.Common;
+using DragPitch.Common;
 
-namespace PaintIn3D
+namespace DragPitch
 {
 	[ExecuteInEditMode]
 	public class P3dDragPitchYaw : MonoBehaviour
@@ -77,30 +77,24 @@ namespace PaintIn3D
 			fingers.Remove(finger);
 		}
 
-		public void OnChangeRotate(Vector3 rotate , bool force = false) 
-		{
-			//Debug.Log("OnChangeRotate" + rotate);
-			pitch = rotate.x;
-			yaw = rotate.y;
-			if (force)
-			{
-				currentPitch = pitch;
-				currentYaw = yaw;
-			}
-		}
 
-		public bool IsSpinging = false;
+		public bool IsChanging = false;
+		public Vector2 delta;
 		protected virtual void Update()
 		{
 			// Calculate delta
-			IsSpinging = false;
-			if (CanRotate == true && Application.isPlaying == true && !UIHover.Hover)
+			IsChanging = false;
+			if (CanRotate == true && Application.isPlaying == true)
 			{
-				var delta = CwInputManager.GetAverageDeltaScaled(fingers);
-				IsSpinging = delta != Vector2.zero;
+				delta = CwInputManager.GetAverageDeltaScaled(fingers);
+				IsChanging = delta != Vector2.zero;
+
 				pitch -= delta.y * pitchSensitivity;
-				yaw   += delta.x *   yawSensitivity;
+				yaw += delta.x * yawSensitivity;
+
 			}
+			else delta = Vector2.zero;
+
 
 			pitch = Mathf.Clamp(pitch, pitchMin, pitchMax);
 

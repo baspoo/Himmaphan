@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Module/Interactive/Scenes/Interactive.unity
-    guid: 5cf3f7126b9798b47b10a1317ebbd486
+  - enabled: 1
+    path: Assets/Module/_Center/Master.unity
+    guid: d58d121366bd46c4ab7de814a68df0e4
   - enabled: 1
     path: Assets/Module/Minigame/Scenes/Minigame.unity
     guid: 091bf14e61a45e54397b0cdad4c624b1
+  - enabled: 1
+    path: Assets/Module/Interactive/Scenes/Interactive.unity
+    guid: ac9c1fded65d3244fb7eb7148abd9a0f
   m_configObjects: {}

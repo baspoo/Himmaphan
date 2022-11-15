@@ -14,7 +14,7 @@ public class UIDebuging : UIBase
         if (instance) instance.OnClose();
         if (!instance)
         {
-            instance = CreatePage<UIDebuging>(Pages.prefab_debug);
+            instance = CreatePage<UIDebuging>(Utility.Store.instance.page.prefab_debug);
             instance.Init();
         }
         return instance;

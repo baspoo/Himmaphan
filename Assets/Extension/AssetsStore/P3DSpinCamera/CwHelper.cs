@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using EventSystem = UnityEngine.EventSystems.EventSystem;
 
-namespace CW.Common
+namespace DragPitch.Common
 {
 	public static partial class CwHelper
 	{
@@ -670,7 +670,7 @@ namespace CW.Common
 }
 
 #if UNITY_EDITOR
-namespace CW.Common
+namespace DragPitch.Common
 {
 	using UnityEditor;
 

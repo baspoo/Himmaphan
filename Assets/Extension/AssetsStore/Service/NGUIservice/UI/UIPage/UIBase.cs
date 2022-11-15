@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Utility;
+//using Utility;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -75,7 +75,7 @@ public class UIBase : MonoBehaviour
 
 
 
-    protected static Store.Pages Pages => Store.instance.page;
+    //protected static Store.Pages Pages => Store.instance.page;
     bool IsActive = false;
     protected bool IsMute { get; private set; }
 
