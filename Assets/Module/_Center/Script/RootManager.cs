@@ -16,7 +16,7 @@ namespace Center
         }
         private IEnumerator Start()
         {
-            yield return StartCoroutine(Center.ManagerCenter.Init());
+            yield return StartCoroutine(Center.ManagerCenter.Init(SceneName.None));
             yield return new WaitForEndOfFrame();
 
 

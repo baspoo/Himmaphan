@@ -26,6 +26,7 @@ namespace MiniGame.Player
             public int Hp;
             public int Score;
             public int TopScore;
+            public int Quiz;
             public float Speed;
             public bool isDead;
             public void Init(PlayerData player)
@@ -51,6 +52,8 @@ namespace MiniGame.Player
         [System.Serializable]
         public class BuffBooster
         {
+             
+
             public QuickShort active = new QuickShort();
             public class QuickShort 
             {
@@ -94,7 +97,6 @@ namespace MiniGame.Player
                     }
                 }
             }
-
 
             List<BoosterRuntime> Boosters = new List<BoosterRuntime>();
             public void Init() {

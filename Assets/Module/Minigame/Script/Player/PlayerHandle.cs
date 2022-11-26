@@ -107,10 +107,27 @@ namespace MiniGame.Player
             playerdata.stat.Score += addscore;
             ConsolePage.instance?.UpdateScore();
         }
+        public void AddBonusScore(int score)
+        {
+            playerdata.stat.Score += score;
+        }
         #endregion
 
 
 
+        #region AddQuiz
+        public void AddQuiz(int quiz = 1 )
+        {
+            if (!playerdata.isReady || playerdata.stat.isDead) return;
+
+            playerdata.stat.Quiz += quiz;
+            if (playerdata.stat.Quiz >= Data.PlistData.plist.minigame.questions.Count) 
+            {
+                GameControl.instance.platform.RemoveBooster(BoosterType.Quiz);
+            }
+            ConsolePage.instance?.UpdateScore();
+        }
+        #endregion
 
 
 

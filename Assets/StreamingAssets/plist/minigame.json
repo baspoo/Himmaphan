@@ -1,0 +1,118 @@
+{
+    "network": {
+        "firebase": "url"
+    },
+    "tuning": {
+        "genarate": {
+            "startFloor": 1,
+            "mainFloor": 3,
+            "freeverFloor": 2,
+            "maxOfRound": [
+                25,
+                35
+            ]
+        },
+        "boosterSpawn": {
+            "genaratePercent": 45,
+            "counter": 2
+        },
+        "quiz": {
+            "bonusPoint": 20
+        }
+    },
+    "coins": [
+        {
+            "objectId": "coin",
+            "value": 10
+        },
+        {
+            "objectId": "mediumcoin",
+            "value": 200
+        },
+        {
+            "objectId": "bigcoin",
+            "value": 1000
+        }
+    ],
+    "boosters": [
+        {
+            "objectId": "hp",
+            "duration": 0,
+            "value": 20,
+            "percent": 20
+        },
+        {
+            "objectId": "immortal",
+            "duration": 6,
+            "value": 0,
+            "percent": 20
+        },
+        {
+            "objectId": "magnet",
+            "duration": 10,
+            "value": 0,
+            "percent": 20
+        },
+        {
+            "objectId": "turbo",
+            "duration": 4,
+            "value": 2.5,
+            "percent": 20
+        },
+        {
+            "objectId": "x2Score",
+            "duration": 10,
+            "value": 2,
+            "percent": 20
+        },
+        {
+            "objectId": "quiz",
+            "duration": 0,
+            "value": 1,
+            "percent": 50
+        }
+    ],
+    "questions": [
+        {
+            "id": "q001",
+            "quest": "1+1=?",
+            "choices": [
+                "1",
+                "2",
+                "3"
+            ],
+            "answer": 2
+        },
+        {
+            "id": "q002",
+            "quest": "7+3=?",
+            "choices": [
+                "10",
+                "14",
+                "11"
+            ],
+            "answer": 1
+        },
+        {
+            "id": "q003",
+            "quest": "70-20=?",
+            "choices": [
+                "90",
+                "45",
+                "50"
+            ],
+            "answer": 3
+        },
+        {
+            "id": "q004",
+            "quest": "4x2=?",
+            "choices": [
+                "4",
+                "8",
+                "10"
+            ],
+            "answer": 2
+        }
+    ],
+    "languages": {}
+}

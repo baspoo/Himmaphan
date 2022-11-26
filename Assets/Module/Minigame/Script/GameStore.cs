@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 
 namespace MiniGame
 {
@@ -17,6 +17,8 @@ namespace MiniGame
                 return m_instance;
             }
         }
+
+
 
         public ObjectData objectData;
         [System.Serializable]
@@ -44,7 +46,7 @@ namespace MiniGame
                 }
                 return collectBase;
             }
-            public CollectBase FindRandom( CollectType type )
+            public CollectBase FindRandom( CollectType type , Player.PlayerData player = null )
             {
                 CollectBase collectBase = null;
                 switch (type)
@@ -82,6 +84,7 @@ namespace MiniGame
             public GameObject prefab_consolePage;
             public GameObject prefab_settingPage;
             public GameObject prefab_gameoverPage;
+            public GameObject prefab_questionPage;
             public GameObject prefab_leaderboardPage;
             public GameObject prefab_profilePage;
         }

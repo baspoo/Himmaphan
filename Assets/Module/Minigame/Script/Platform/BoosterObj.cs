@@ -9,7 +9,8 @@ namespace MiniGame
         Immortal,
         X2Score,
         LifePoint,
-        Turbo
+        Turbo,
+        Quiz
     }
     [System.Serializable]
     public class BoosterData
@@ -17,6 +18,7 @@ namespace MiniGame
         public BoosterType BoosterType;
         public float Duration;
         public double Value;
+        public double Percent;
         public System.DateTime Time;
         public Color Color;
     }
@@ -38,7 +40,7 @@ namespace MiniGame
 
     public class BoosterObj : CollectBase
     {
-
+        
         public BoosterData Data;
 
         protected override void OnBegin()
@@ -110,6 +112,11 @@ namespace MiniGame
                     boosterRuntime.EventDone = (p) => {
                         p.stat.Speed = p.defaultStat.BeginSpeed;
                         GameControl.instance.background.ActiveRoadOfRainBow(false);
+                    };
+                    break;
+                case BoosterType.Quiz:
+                    boosterRuntime.EventStart = (p) => {
+                        p.handle.AddQuiz((int)Data.Value);
                     };
                     break;
                 default:

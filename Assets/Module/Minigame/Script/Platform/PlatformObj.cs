@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace MiniGame { 
     public class PlatformObj : BasePool
     {
@@ -104,15 +105,20 @@ namespace MiniGame {
             }
 
             GameObject m_gameobject;
-            public GameObject Load ( )
+            public GameObject Load(PlatformManager manager)
             {
                 if (objectId.isnull()) 
                 {
-                    var collect = GameStore.instance.objectData.FindRandom(type);
-                    return collect != null ? collect.gameObject : null;
+                    if (type == CollectType.Booster)
+                    {
+                        return manager.RandomBooster().gameObject;
+                    }
+                    else 
+                    {
+                        var collect = GameStore.instance.objectData.FindRandom(type);
+                        return collect != null ? collect.gameObject : null;
+                    }
                 }
-
-
                 if (m_gameobject == null) 
                 {
                     var collect = GameStore.instance.objectData.Find(type, objectId);
@@ -167,17 +173,14 @@ namespace MiniGame {
 
                 if (node.type == CollectType.Booster) 
                 {
-                    if (manager.IsCanGenBooster())
+                    if (!manager.IsCanGenBooster())
                     {
-
-                    }
-                    else 
-                    {
+                        //** skip loop
                         continue;
                     }
                 }
 
-                var obj = node.Load();
+                var obj = node.Load(manager);
                 if (obj != null)
                 {
                     var pool = obj.gameObject.Pool(objects).GetComponent<CollectBase>();

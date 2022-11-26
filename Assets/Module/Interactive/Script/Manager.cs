@@ -9,7 +9,7 @@ namespace Interactive {
 
         private IEnumerator Start()
         {
-            yield return StartCoroutine( Center.ManagerCenter.Init());
+            yield return StartCoroutine( Center.ManagerCenter.Init(Center.RootManager.SceneName.Interactive));
             yield return new WaitForEndOfFrame();
 
             camera.Init();

@@ -44,6 +44,11 @@ namespace MiniGame
             {
                 Player.PlayerData.player.handle.AddDamage(20);
             }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Player.PlayerData.player.handle.AddQuiz(1);
+            }
+
 
             if (Input.GetKeyDown(KeyCode.Z))
             {

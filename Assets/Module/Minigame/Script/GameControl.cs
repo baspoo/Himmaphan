@@ -19,6 +19,7 @@ namespace MiniGame
             }
         }
 
+       
         public Player.PlayerData player;
         public CameraEngine camera;
         public PlatformManager platform;
@@ -28,7 +29,7 @@ namespace MiniGame
 
         public IEnumerator Init()
         {
-
+            
             player.Init();
             camera.Init();
             platform.Init();
@@ -66,8 +67,9 @@ namespace MiniGame
                 var find = GameStore.instance.objectData.boosters.Find(x => x.objectId == booster.objectId);
                 if (find != null)
                 {
-                    find.Data.Duration = booster.duration;
-                    find.Data.Value = (int)booster.value;
+                    find.Data.Duration  = booster.duration;
+                    find.Data.Value     = booster.value;
+                    find.Data.Percent   = booster.percent;
                 }
             }
         }
@@ -121,7 +123,13 @@ namespace MiniGame
 
             ConsolePage.instance?.ClosePage();
             yield return new WaitForSeconds(1.5f);
-            GameOverPage.Open();
+
+            if (player.stat.Quiz > 0) 
+            {
+                QuestionPage.Open( player.stat.Quiz , ()=> { GameOverPage.Open(); });
+            }
+            else 
+                GameOverPage.Open();
         }
 
 

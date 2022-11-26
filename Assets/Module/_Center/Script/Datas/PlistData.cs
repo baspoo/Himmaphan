@@ -14,8 +14,22 @@ namespace Data
 
 
 
-        public string version;
-        public Dictionary<string, string> languages = new Dictionary<string, string>();
+
+
+
+
+
+
+
+
+
+        public Config config = new Config();
+        [System.Serializable]
+        public class Config
+        {
+            public Dictionary<string, string> languages = new Dictionary<string, string>();
+            public string version;
+        }
 
 
 
@@ -23,6 +37,8 @@ namespace Data
         [System.Serializable]
         public class Interactive
         {
+            public Dictionary<string, string> languages = new Dictionary<string, string>();
+
             //--> Distance
             public PlayerDistance playerDistance = new PlayerDistance();
             [System.Serializable]
@@ -55,6 +71,8 @@ namespace Data
         [System.Serializable]
         public class Minigame
         {
+            public Dictionary<string, string> languages = new Dictionary<string, string>();
+
             public Network network;
             [System.Serializable]
             public class Network
@@ -62,15 +80,45 @@ namespace Data
                 public string firebase;
             }
 
-            public Config config;
+            public Tuning tuning;
             [System.Serializable]
-            public class Config
+            public class Tuning
+            {
+                public Genarate genarate;
+                public BoosterSpawn boosterSpawn;
+                public Quiz quiz;
+            }
+            [System.Serializable]
+            public class Genarate
             {
                 public int startFloor;
                 public int mainFloor;
                 public int freeverFloor;
                 public int[] maxOfRound;
             }
+            [System.Serializable]
+            public class BoosterSpawn
+            {
+                public int genaratePercent = 45;
+                public int counter = 2;
+            }
+            [System.Serializable]
+            public class Quiz
+            {
+                public int bonusPoint = 20;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,6 +130,19 @@ namespace Data
                 public string objectId;
                 public float duration;
                 public double value;
+                public double percent;
+            }
+
+
+
+            public List<Question> questions;
+            [System.Serializable]
+            public class Question
+            {
+                public string id;
+                public string quest;
+                public string[] choices;
+                public int answer;
             }
 
         }

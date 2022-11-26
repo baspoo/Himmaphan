@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3998230372446782316}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.02, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -119,7 +119,8 @@ MonoBehaviour:
   hitEventType: 0
   distanceComming: 0
   Data:
-    BoosterType: 2
+    BoosterType: 5
     Duration: 10
     Value: 2
-    Color: {r: 1, g: 0.8739869, b: 0, a: 1}
+    Percent: 20
+    Color: {r: 1, g: 0.82100976, b: 0, a: 1}

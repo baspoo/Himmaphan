@@ -122,4 +122,5 @@ MonoBehaviour:
     BoosterType: 0
     Duration: 10
     Value: 0
+    Percent: 20
     Color: {r: 0, g: 0.021121979, b: 1, a: 1}

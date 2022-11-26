@@ -1,0 +1,21 @@
+{
+    "playerDistance": {
+        "distanceOfFar": 50,
+        "distanceActive": 100,
+        "distanceObject": 50,
+        "distanceInteractive": 5,
+        "distanceNear": 2.5,
+        "distanceFollow": 20
+    },
+    "input": {
+        "web": {
+            "spinSensitivity": 0.1,
+            "zoomSensitivity": 1
+        },
+        "mobile": {
+            "spinSensitivity": 0.1,
+            "zoomSensitivity": 1
+        }
+    },
+    "languages": {}
+}

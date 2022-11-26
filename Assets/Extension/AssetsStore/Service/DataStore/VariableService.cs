@@ -188,6 +188,22 @@ public static class VariableService
 			round?.Invoke();
 		}
 	}
+	public static int[] Shuffle( this int count )
+	{
+		var index = new int[count];
+		for (int i = 0; i < count; i++)
+			index[i] = i;
+
+		for (int i = 0; i < count; i++)
+		{
+			var temp = index[i];
+			int randomIndex = UnityEngine.Random.Range(i, count);
+			index[i] = index[randomIndex];
+			index[randomIndex] = temp;
+		}
+		return index;
+	}
+
 	public static int Min(this int i, int min) => (i < min) ? min : i;
 	public static int Max(this int i, int max) => (i > max) ? max : i;
 	public static double Max(this double i, double max) => (i > max) ? max : i;

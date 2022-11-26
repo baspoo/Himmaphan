@@ -5,8 +5,10 @@ using UnityEngine;
 namespace Center {
     public class ManagerCenter
     {
-        public static IEnumerator Init()
+        public static RootManager.SceneName SceneName;
+        public static IEnumerator Init(RootManager.SceneName sceneName)
         {
+            SceneName = sceneName;
             Store.Create();
             InterfaceRoot.instance?.Init();
             yield return new WaitForEndOfFrame();

@@ -80,7 +80,63 @@ namespace Center
                 yield break;
             }
 
-            var url = $"{Application.streamingAssetsPath}/plist.json";
+
+            //** New Plist
+            Data.PlistData plist = new Data.PlistData();
+
+
+
+            //** Download Config
+            var config = false;
+            yield return StartCoroutine(DoDownloadPlistData("config", (json) => {
+                if (json.notnull()) 
+                {
+                    plist.config = json.DeserializeObject<Data.PlistData.Config>();
+                    config = true;
+                }
+            }));
+            while (!config) yield return new WaitForEndOfFrame();
+
+
+            //** Download Interactive
+            var interactive = false;
+            yield return StartCoroutine(DoDownloadPlistData("interactive", (json) => {
+                if (json.notnull())
+                {
+                    plist.interactive = json.DeserializeObject<Data.PlistData.Interactive>();
+                    interactive = true;
+                }
+            }));
+            while (!interactive) yield return new WaitForEndOfFrame();
+
+
+            //** Download Minigame
+            var minigame = false;
+            yield return StartCoroutine(DoDownloadPlistData("minigame", (json) => {
+                if (json.notnull())
+                {
+                    plist.minigame = json.DeserializeObject<Data.PlistData.Minigame>();
+                    minigame = true;
+                }
+            }));
+            while (!minigame) yield return new WaitForEndOfFrame();
+
+
+
+            //** VerifyVersion
+            var verify = false;
+            yield return StartCoroutine(DoVerifyVersion(plist.config.version, (complete) => { verify = complete; }));
+            while (!verify) yield return new WaitForEndOfFrame();
+
+
+            //** Assing
+            Data.PlistData.plist = plist;
+            this.plist = plist;
+            callback?.Invoke(true);
+        }
+        IEnumerator DoDownloadPlistData(string plistName, System.Action<string> callback)
+        {
+            var url = $"{Application.streamingAssetsPath}/plist/{plistName}.json";
             WWW www = new WWW(url);
             yield return www;
             if (www.error.isnull())
@@ -90,28 +146,21 @@ namespace Center
                 //Debug.Log(Json);
                 if (Json.notnull())
                 {
-                    var plist = Json.DeserializeObject<Data.PlistData>();
-
-                    var verify = false;
-                    yield return StartCoroutine(DoVerifyVersion(plist.version, (complete) => { verify = complete; }));
-                    while (!verify) yield return new WaitForEndOfFrame();
-                    Data.PlistData.plist = plist;
-                    this.plist = plist;
-                    callback?.Invoke(true);
+                    callback?.Invoke(Json);
                 }
                 else
                 {
-                    Error($"Download-Data [Plist] : Json == null");
-                    callback?.Invoke(false);
+                    Error($"Download-Data [Plist : {plistName}] = Json null");
+                    callback?.Invoke(null);
                 }
                 AddApiHistory(url, Json, true);
             }
             else
             {
                 //-> Error
-                Error($"Download-Data [Plist] : {www.error}");
+                Error($"Download-Data [Plist : {plistName}] = {www.error}");
                 AddApiHistory(url, www.error, false);
-                callback?.Invoke(false);
+                callback?.Invoke(null);
             }
             www.Dispose();
         }
@@ -453,23 +502,31 @@ namespace Center
 
 
         #region Download-Language
-        public string Language(string key, string replace = null)
+        public string Language(string key, string replace = null , string defaultText = null)
         {
-            if (Data.PlistData.plist != null && Data.PlistData.plist.languages.ContainsKey(key))
+            if (Data.PlistData.plist != null)
             {
-                if (replace == null) return Data.PlistData.plist.languages[key];
-                else return Data.PlistData.plist.languages[key].Replace("@", replace);
+                Dictionary<string, string> dict = null;
+                switch (Center.ManagerCenter.SceneName)
+                {
+                    case RootManager.SceneName.None:
+                        if(Data.PlistData.plist.config!=null) dict = Data.PlistData.plist.config.languages;
+                        break;
+                    case RootManager.SceneName.Minigame:
+                        if (Data.PlistData.plist.minigame != null) dict = Data.PlistData.plist.minigame.languages;
+                        break;
+                    case RootManager.SceneName.Interactive:
+                        if (Data.PlistData.plist.interactive != null) dict = Data.PlistData.plist.interactive.languages;
+                        break;
+                }
+
+                if (dict!=null && dict.ContainsKey(key)) 
+                {
+                    if (replace == null) return dict[key];
+                    else return dict[key].Replace("@", replace);
+                }
             }
-            return key;
-        }
-        public void Language(string key, UILabel lable)
-        {
-            string message = lable.text;
-            if (Data.PlistData.plist != null && Data.PlistData.plist.languages.ContainsKey(key))
-            {
-                message = Data.PlistData.plist.languages[key];
-            }
-            lable.text = message;
+            return defaultText != null ? defaultText : key;
         }
         #endregion
 

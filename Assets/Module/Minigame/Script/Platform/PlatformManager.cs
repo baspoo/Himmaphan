@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 namespace MiniGame
 {
@@ -9,9 +11,17 @@ namespace MiniGame
        
         public void Init()
         {
-            startFloor = Data.PlistData.plist.minigame.config.startFloor;
-            mainFloor = Data.PlistData.plist.minigame.config.mainFloor;
-            freeverFloor = Data.PlistData.plist.minigame.config.freeverFloor;
+            //** floor
+            startFloor = Data.PlistData.plist.minigame.tuning.genarate.startFloor;
+            mainFloor = Data.PlistData.plist.minigame.tuning.genarate.mainFloor;
+            freeverFloor = Data.PlistData.plist.minigame.tuning.genarate.freeverFloor;
+            maxOfRound = Data.PlistData.plist.minigame.tuning.genarate.maxOfRound;
+
+            //** genarate
+            boosterSpawn = Data.PlistData.plist.minigame.tuning.boosterSpawn;
+
+            //** booster
+            InitBooster();
         }
         public void PreParingScene()
         {
@@ -60,7 +70,7 @@ namespace MiniGame
         public float floorLenght = 30f;
         public float farToTrash = 50f;
         public Transform root;
-
+        int[] maxOfRound = new int[2] { 1 , 3 };
 
         int countPlatformGenarate;
         int countPlatformComplete;
@@ -74,8 +84,7 @@ namespace MiniGame
             countPlatformComplete = 0;
 
             //** Random Max Of Round
-            maxPlatformRound = 
-                Random.RandomRange(Data.PlistData.plist.minigame.config.maxOfRound[0], Data.PlistData.plist.minigame.config.maxOfRound[1]);
+            maxPlatformRound = maxOfRound.Random();
 
             //** Snap Player to Origin
             Player.PlayerData.player.transform.position = GameControl.instance.background.origin.transform.position;
@@ -177,16 +186,26 @@ namespace MiniGame
 
 
 
-
+        //** BOOSTER
+        [SerializeField] List<BoosterObj> boosters;
+        List<double> randomBooster;
         int boosterLocationCounter = 0;
-        int boosterLocationCounterMax = 2;
-        int boosterGenaratePercents = 45;
+        Data.PlistData.Minigame.BoosterSpawn boosterSpawn = new Data.PlistData.Minigame.BoosterSpawn() { 
+            genaratePercent = 45,
+            counter = 2
+        };
+        void InitBooster()
+        {
+            boosters = new List<BoosterObj>();
+            boosters.AddRange(GameStore.instance.objectData.boosters);
+            randomBooster = boosters.Select(x => x.Data.Percent).ToList();
+        }
         public bool IsCanGenBooster() 
         {
             boosterLocationCounter++;
-            if (boosterLocationCounter >= boosterLocationCounterMax) 
+            if (boosterLocationCounter >= boosterSpawn.counter) 
             {
-                if (100.Random() < boosterGenaratePercents)
+                if (100.Random() < boosterSpawn.genaratePercent)
                 {
                     boosterLocationCounter = 0;
                     return true;
@@ -194,6 +213,15 @@ namespace MiniGame
                 else return false;
             }
             else return false;
+        }
+        public BoosterObj RandomBooster() {
+
+            return boosters[CakeRandom.ChooseRandomIndex(randomBooster)];
+        }
+        public void RemoveBooster( BoosterType boosterType)
+        {
+            boosters.RemoveAll(x=>x.Data.BoosterType == boosterType);
+            randomBooster = boosters.Select(x => x.Data.Percent).ToList();
         }
 
 
