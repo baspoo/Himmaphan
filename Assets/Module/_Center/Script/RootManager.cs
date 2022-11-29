@@ -21,6 +21,21 @@ namespace Center
 
 
 
+
+
+
+
+            List<int> tests = new List<int>() { 1,2,3,4,5,6,7,8,9};
+            tests = tests.Shuffle();
+            tests.ForEach(x=>Debug.Log(x));
+
+
+
+
+
+
+
+
             //** Web URL
             bool requestParms = false;
             string modeString = string.Empty;
@@ -47,6 +62,9 @@ namespace Center
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName.Interactive.ToString());
         }
-
+        public void GotoWeb()
+        {
+            SampleWebView.Open("https://www.youtube.com/");
+        }
     }
 }

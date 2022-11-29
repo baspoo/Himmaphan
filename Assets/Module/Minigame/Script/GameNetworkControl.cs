@@ -87,17 +87,20 @@ namespace MiniGame
             else 
             {
                 //Selete Bucket & Create Account
-                AccountInfo.Create("swk");
+                acc = AccountInfo.Create("swk");
             }
-            while(acc == null)
-                yield return new WaitForEndOfFrame();
 
 
+            yield return new WaitForEndOfFrame();
+
+
+            Debug.Log("network:firebaseInit");
 
             //** Init
             firebase.Init( acc.bucket , acc.userId, () => {
 
-                Debug.Log("FirebaseService.DONE");
+                Debug.Log($"network:firebaseDone user = {firebase.user != null}");
+                
 
                 //** New User
                 if (firebase.user == null)

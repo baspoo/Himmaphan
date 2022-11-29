@@ -40,11 +40,19 @@ namespace Interactive.CameraControl
         int layerMask;
         public void Init()
         {
+
+            #if !UNITY_EDITOR
+            deviceType = Application.isMobilePlatform ? DeviceType.Mobile : DeviceType.Web;
+            #endif
+
             isEnabled = true;
             layerMask = 1 << LayerMask.NameToLayer("UI");
             allowHoldKey = deviceType == DeviceType.Web;
             if (deviceType == DeviceType.Mobile)
+            {
                 moveKey = KeyCode.Mouse0;
+                UIHover.Enable = false;
+            }
         }
         public void Update()
         {
@@ -63,7 +71,20 @@ namespace Interactive.CameraControl
 
 
 
-
+        public bool IsCanInput
+        {
+            get
+            {
+                if (deviceType == DeviceType.Mobile)
+                {
+                    return !IsUiOverlapping();
+                }
+                else 
+                {
+                    return UIHover.Hover;
+                }
+            }
+        }
 
 
 
@@ -76,7 +97,7 @@ namespace Interactive.CameraControl
         #region Web
         public void UpdateInputWeb() 
         {
-            if (!CameraEngine.IsCameraInput)
+            if (!IsCanInput)
                 return;
 
             MoveInputType moveInputType = MovingInput();
@@ -117,27 +138,40 @@ namespace Interactive.CameraControl
         #region Mobile
         public void UpdateInputMobile()
         {
-            if (Vector2.Distance(CameraEngine.instance.cameraCtr.deltaSpining,Vector2.zero) > deltaSpiningForSkip)
+            if (Vector2.Distance(CameraEngine.instance.cameraCtr.deltaSpining, Vector2.zero) > deltaSpiningForSkip)
             {
                 skipwalk = true;
             }
             if (Input.GetKeyDown(moveKey))
             {
-                StartCoroutine(DoClickToMove());
+                if (!IsUiOverlapping()) 
+                {
+                    StartCoroutine(DoClickToMove());
+                }
             }
+        }
+        bool IsUiOverlapping() 
+        {
+            if (Input.touches.Length == 0) return false;
+
+            Touch mainTouch = Input.touches[0];
+            Ray ray = UICamera.currentCamera.ScreenPointToRay(mainTouch.position);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 100, uiLayerMask);
+            int count = hits.Length;
+            Debug.Log($"UiOverlapping : {count}");
+            return count > 0;
         }
         bool skipwalk;
         IEnumerator DoClickToMove()
         {
             skipwalk = false;
             yield return new WaitForSeconds(0.12f);
-            if (UIHover.Hover && !skipwalk)
+            if (!IsUiOverlapping() && !skipwalk)
                 DoMoving(new MoveInputType()
                 {
                     Valid = true,
                     Held = false
                 });
-            //else Debug.LogError($"{UIHover.Hover } {skipwalk}");
         }
         #endregion
 

@@ -438,7 +438,7 @@ namespace FirebaseSimple
 
 
                     //Check-Remove-OldScore
-                    var record = FindRecordScore(userId);
+                    var record = FindKeyRecordScore(userId);
                     if (record.isnull())
                     {
                         //** [New Record] Push Score **
@@ -452,19 +452,24 @@ namespace FirebaseSimple
                     else 
                     {
                         //** [Update Record] Update Score**
-                        Firebase put = firebase.Child($"runtime/scores/{record}", true);
-                        put.OnUpdateSuccess = (sender, snap) =>
+                        //** can update = now score > old score.
+                        var old = FindRecordScore(record);
+                        if( old!=null && score.score >= old.score) 
                         {
-                            GetRuntime((r) => { });
-                        };
-                        put.UpdateValue(score.SerializeToJson());
+                            Firebase put = firebase.Child($"runtime/scores/{record}", true);
+                            put.OnUpdateSuccess = (sender, snap) =>
+                            {
+                                GetRuntime((r) => { });
+                            };
+                            put.UpdateValue(score.SerializeToJson());
+                        }
                     }
                 }
 
             });
         }
 
-        string FindRecordScore(string userId) 
+        string FindKeyRecordScore(string userId) 
         {
             foreach (var score in runtime.scores)
             {
@@ -475,7 +480,17 @@ namespace FirebaseSimple
             }
             return null;
         }
-
+        Runtime.Score FindRecordScore(string record)
+        {
+            foreach (var score in runtime.scores)
+            {
+                if (score.Key == record)
+                {
+                    return score.Value;
+                }
+            }
+            return null;
+        }
 
 
 

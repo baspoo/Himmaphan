@@ -14,7 +14,9 @@ namespace Center {
             yield return new WaitForEndOfFrame();
 
             var done = false;
-            LoadCenter.instance.GetPlistData(x => { done = x; });
+            LoadCenter.instance.GetPlistData(x => { 
+                done = x; 
+            });
             while (!done) yield return new WaitForEndOfFrame();
         }
 

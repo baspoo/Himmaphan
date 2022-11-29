@@ -499,6 +499,19 @@ public static class VariableService
 	{
 		return transforms.Find(name) != null;
 	}
+
+
+	public static List<T> Shuffle<T>(this List<T> let)
+	{
+		for (int i = 0; i < let.Count; i++)
+		{
+			var temp = let[i];
+			int randomIndex = UnityEngine.Random.Range(i, let.Count);
+			let[i] = let[randomIndex];
+			let[randomIndex] = temp;
+		}
+		return let;
+	}
 	#endregion
 
 

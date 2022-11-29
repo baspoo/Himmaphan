@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIHover : MonoBehaviour
 {
-
+    static UIHover uihover;
     public static bool Hover 
     {
         get
@@ -13,6 +13,17 @@ public class UIHover : MonoBehaviour
         }
     }
 
+    public static bool Enable 
+    {
+        get
+        {
+            return uihover.gameObject.activeSelf;
+        }
+        set 
+        {
+            uihover.gameObject.SetActive(value);
+        }
+    }
 
     static bool m_hover;
     static bool m_hoverAlway;
@@ -28,6 +39,7 @@ public class UIHover : MonoBehaviour
 
     void Awake()
     {
+        uihover = this;
         et = gameObject.AddComponent<UIEventTrigger>();
         et.onHoverOver.Add(new EventDelegate(()=> {
             m_hover = true;

@@ -144,7 +144,7 @@ namespace Interactive.CameraControl
             }
             else
             {
-                if (!CameraEngine.IsCameraInput)
+                if (!input.IsCanInput)
                 {
                     clearrotate();
                     return;

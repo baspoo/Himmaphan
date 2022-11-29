@@ -171,7 +171,7 @@ public class SampleWebView : MonoBehaviour
 
         //webViewObject.SetScrollbarsVisibility(true);
 
-        webViewObject.SetMargins(5, 80, 5, 5 );
+        webViewObject.SetMargins(5, topScreen , 5, 5 );
         webViewObject.SetTextZoom(100);  // android only. cf. https://stackoverflow.com/questions/21647641/android-webview-set-font-size-system-default/47017410#47017410
         webViewObject.SetVisibility(true);
 
@@ -223,20 +223,33 @@ public class SampleWebView : MonoBehaviour
 
 
     public UIButton uiBack,uiForward;
+    public int topScreen=100;
     private void Update()
     {
+        if (webViewObject == null)
+            return;
+
         uiBack.isEnabled = webViewObject.CanGoBack();
         uiForward.isEnabled = webViewObject.CanGoForward();
     }
     public void GoBack() {
+        if (webViewObject == null)
+            return;
+
         webViewObject.GoBack();
     }
     public void GoForward()
     {
+        if (webViewObject == null)
+            return;
+
         webViewObject.GoForward();
     }
     public void Reload()
     {
+        if (webViewObject == null)
+            return;
+
         webViewObject.Reload();
     }
     public void Exit()
@@ -246,7 +259,7 @@ public class SampleWebView : MonoBehaviour
         {
             Destroy(g);
         }
-        webViewObject.SetInteractionEnabled(false);
+        webViewObject?.SetInteractionEnabled(false);
         Destroy(gameObject);
     }
 

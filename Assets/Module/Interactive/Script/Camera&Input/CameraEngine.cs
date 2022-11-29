@@ -24,14 +24,14 @@ namespace Interactive.CameraControl
 
 
 
-		static bool stopInput = false;
-		public static bool IsCameraInput
-		{
-			get
-			{
-				return UIHover.Hover && !stopInput;
-			}
-		}
+		//static bool stopInput = false;
+		//public static bool IsCameraInput
+		//{
+		//	get
+		//	{
+		//		return UIHover.Hover && !stopInput;
+		//	}
+		//}
 
 
 		public static bool IsStopCameraEngine { get; private set; }

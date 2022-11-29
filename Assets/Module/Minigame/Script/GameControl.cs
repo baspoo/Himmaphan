@@ -29,7 +29,7 @@ namespace MiniGame
 
         public IEnumerator Init()
         {
-            
+            Debug.Log("gameControl:begin");
             player.Init();
             camera.Init();
             platform.Init();
@@ -39,7 +39,7 @@ namespace MiniGame
             network.Init();
             while(!network.isNetworkReady) 
                 yield return new WaitForEndOfFrame();
-
+            Debug.Log("gameControl:done");
         }
 
 

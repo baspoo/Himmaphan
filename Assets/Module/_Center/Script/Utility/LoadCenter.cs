@@ -125,7 +125,10 @@ namespace Center
 
             //** VerifyVersion
             var verify = false;
-            yield return StartCoroutine(DoVerifyVersion(plist.config.version, (complete) => { verify = complete; }));
+            yield return StartCoroutine(DoVerifyVersion(plist.config.version, (complete) => {
+                verify = complete;
+                Debug.Log($"verify version :{verify}");
+            }));
             while (!verify) yield return new WaitForEndOfFrame();
 
 
